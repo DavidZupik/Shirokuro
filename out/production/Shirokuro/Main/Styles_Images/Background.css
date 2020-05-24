@@ -1,0 +1,52 @@
+.bgM{
+    -fx-background-image: url("Images/bgM.jpg");
+    -fx-background-size: 700px 500px;
+}
+.bgH{
+    -fx-background-image: url("Images/bgH.jpg");
+    -fx-background-size: 700px 500px;
+}
+.bgL{
+    -fx-background-image: url("Images/bgL.jpg");
+    -fx-background-size: 700px 500px;
+}
+.bgLoad{
+    -fx-background-image: url("Images/bgLoad.jpg");
+    -fx-background-size: auto;
+}
+.bg1{
+    -fx-background-image: url("Images/bg1.jpg");
+    -fx-background-size: 700px 500px;
+}
+.bg2{
+    -fx-background-image: url("Images/bg2.jpg");
+    -fx-background-size: 700px 500px;
+}
+.bg3{
+     -fx-background-image: url("Images/bg3.jpg");
+     -fx-background-size: 700px 500px;
+}
+.bg4{
+      -fx-background-image: url("Images/bg4.jpg");
+      -fx-background-size: 700px 500px;
+}
+.bg5{
+    -fx-background-image: url("Images/bg5.jpg");
+    -fx-background-size: 700px 500px;
+}
+.bg6{
+    -fx-background-image: url("Images/bg6.jpg");
+    -fx-background-size: 700px 500px;
+}
+.wbg1{
+    -fx-background-image: url("Images/wbg1.jpg");
+    -fx-background-size: 600px 400px;
+}
+.wbg2{
+    -fx-background-image: url("Images/wbg2.jpg");
+    -fx-background-size: 600px 400px;
+}
+.wbg3{
+    -fx-background-image: url("Images/wbg3.jpg");
+    -fx-background-size: 600px 400px;
+}

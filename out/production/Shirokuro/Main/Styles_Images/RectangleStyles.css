@@ -1,0 +1,11 @@
+.freeRect{
+    -fx-fill: grey;
+}
+
+.white{
+    -fx-fill: white;
+}
+
+.black{
+    -fx-fill: black;
+}
