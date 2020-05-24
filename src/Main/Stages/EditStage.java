@@ -56,7 +56,6 @@ public class EditStage extends Stage {
         editPane = new EditPane();
         editPane.setAlignment(Pos.CENTER);
     }
-
     public void setUpEditStage(){
         solvableCircle = solvableCircleComponents();
 
@@ -143,7 +142,6 @@ public class EditStage extends Stage {
         editPane.paint();
 
     }
-
     public void setClickedStyle(Button button){
 
         whiteCellButton.getStyleClass().clear();
@@ -166,7 +164,6 @@ public class EditStage extends Stage {
             blackCellButton.getStyleClass().add("edit-buttons");
         }
     }
-
     public void setCenterCircleFill(){
         if(solvable){
             solvableCircle.setFill(Color.GREEN);
@@ -175,7 +172,6 @@ public class EditStage extends Stage {
             solvableCircle.setFill(Color.RED);
         }
     }
-
     public boolean numberOfCirclesWB(){
         int b = 0;
         int w = 0;
@@ -192,47 +188,43 @@ public class EditStage extends Stage {
         return b == w && b != 0;
     }
 
-    Circle solvableCircleComponents(){
+    private Circle solvableCircleComponents(){
         Circle circle = new Circle();
         circle.setRadius(12.5);
         circle.setFill(Color.RED);
         return circle;
     }
-
-    void whiteCellButtonAction(){
+    private void whiteCellButtonAction(){
         setClickedStyle(whiteCellButton);
         state = States.WHITE;
     }
-    Circle whiteButtonComponents(){
+    private Circle whiteButtonComponents(){
         Circle circle = new Circle();
         circle.setRadius(9);
         circle.setStyle("-fx-fill: white");
         return circle;
     }
-
-    void blackCellButtonAction(){
+    private void blackCellButtonAction(){
         setClickedStyle(blackCellButton);
         state = States.BLACK;
     }
-    Circle blackButtonComponents(){
+    private Circle blackButtonComponents(){
         Circle circle = new Circle();
         circle.setRadius(9);
         circle.setStyle("-fx-fill: black");
         return circle;
     }
-
-    void removeCellButtonAction(){
+    private void removeCellButtonAction(){
         setClickedStyle(removeCellButton);
         state = States.FREE;
     }
-
-    void plusButtonAction(){
+    private void plusButtonAction(){
         if(size + 1 <= 20) {
             editState = new EditState(++size);
             editPane.paint();
         }
     }
-    StackPane plusButtonComponents(){
+    private StackPane plusButtonComponents(){
         StackPane stackPane = new StackPane();
         Rectangle plusRect1 = new Rectangle();
         plusRect1.setX(12.5);
@@ -251,14 +243,13 @@ public class EditStage extends Stage {
         stackPane.getChildren().addAll(plusRect1, plusRect2);
         return stackPane;
     }
-
-    void minusButtonAction(){
+    private void minusButtonAction(){
         if(size - 1 >= 10) {
             editState = new EditState(--size);
             editPane.paint();
         }
     }
-    Rectangle minusButtonComponents(){
+    private Rectangle minusButtonComponents(){
         Rectangle rectangle = new Rectangle();
         rectangle.setX(12.5);
         rectangle.setWidth(20);
@@ -267,13 +258,12 @@ public class EditStage extends Stage {
         rectangle.setFill(Color.BLACK);
         return rectangle;
     }
-
-    void getBackButtonAction(){
+    private void getBackButtonAction(){
         this.close();
         Shirokuro.getMainMenu().show();
 
     }
-    void saveButtonAction(){
+    private void saveButtonAction(){
         if(solvable) {
             saveGame = new SaveGame(this, true);
             saveGame.show();
@@ -282,7 +272,7 @@ public class EditStage extends Stage {
             //todo show stage - you need to check if its solvable
         }
     }
-    void checkButtonAction(){
+    private void checkButtonAction(){
         if(numberOfCirclesWB()) {
             editState.countCircles();
             pairs = new LinkedHashMap<>();
@@ -292,8 +282,11 @@ public class EditStage extends Stage {
             }
         }
     }
-
-    CellState findNextWhite(int row, int col){
+    private boolean isSolvable(){
+        solvableBacktrack(findNextWhite(0, 0));
+        return pairs.size() == editState.numberOfCircles;
+    }
+    private CellState findNextWhite(int row, int col){
         for (int j = col; j < editState.cells.length; j++) {
             if(!pairs.containsKey(editState.cells[row][j])) {
                 if (editState.cells[row][j].state == States.WHITE) {
@@ -311,15 +304,7 @@ public class EditStage extends Stage {
         }
         return null;
     }
-
-    /**
-     * @return true - ak je naeditovany level splnitelny
-     */
-    boolean isSolvable(){
-        solvableBacktrack(findNextWhite(0, 0));
-        return pairs.size() == editState.numberOfCircles;
-    }
-    void solvableBacktrack(CellState cell){
+    private void solvableBacktrack(CellState cell){
         if(pairs.size() == editState.numberOfCircles){
             return;
         }
@@ -397,13 +382,12 @@ public class EditStage extends Stage {
         }
         deleteLastPair();
     }
-
-    void addPair(CellState cell1, CellState cell2){
+    private void addPair(CellState cell1, CellState cell2){
         makePipeBetween(cell1, cell2);
         pairs.put(cell1, cell2);
         pairs.put(cell2, cell1);
     }
-    void makePipeBetween(CellState cell1, CellState cell2){
+    private void makePipeBetween(CellState cell1, CellState cell2){
         if(cell1.getCol() == cell2.getCol()){
             if(cell1.getRow() < cell2.getRow()){
                 for (int i = cell1.getRow()+1; i < cell2.getRow(); i++) {
@@ -437,7 +421,7 @@ public class EditStage extends Stage {
             }
         }
     }
-    void deleteLastPair(){
+    private void deleteLastPair(){
         if(pairs.size() == 0){
             return;
         }
@@ -448,7 +432,7 @@ public class EditStage extends Stage {
         pairs.remove(cell1);
         pairs.remove(cell2);
     }
-    void deletePipeBetween(CellState cell1, CellState cell2){
+    private void deletePipeBetween(CellState cell1, CellState cell2){
         if(cell1.getCol() == cell2.getCol()){
             if(cell1.getRow() < cell2.getRow()){
                 for (int i = cell1.getRow()+1; i < cell2.getRow(); i++) {
