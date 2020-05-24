@@ -31,6 +31,9 @@
     -fx-font-family: "JetBrains Mono";
 }
 .edit-root{
-    -fx-background-color: linear-gradient(to right, #603813, #b29f94);
+    -fx-background-color: linear-gradient(to right, #1d4350, #a43931);
     -fx-background-insets: 0, 0 1 1 0 ;
+}
+.bad-save{
+    -fx-background-color: linear-gradient(to right, #141e30, #243b55);
 }

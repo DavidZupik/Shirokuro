@@ -29,6 +29,7 @@ public class EditStage extends Stage {
     public static States state = States.FREE;
     public EditPane editPane;
     SaveGame saveGame;
+    EditBadSave badSave;
 
     BorderPane root;
     BorderPane topPane;
@@ -269,7 +270,8 @@ public class EditStage extends Stage {
             saveGame.show();
         }
         else{
-            //todo show stage - you need to check if its solvable
+            badSave = new EditBadSave(this);
+            badSave.show();
         }
     }
     private void checkButtonAction(){
@@ -305,11 +307,8 @@ public class EditStage extends Stage {
         return null;
     }
     private void solvableBacktrack(CellState cell){
-        if(pairs.size() == editState.numberOfCircles){
-            return;
-        }
         //going top
-        if ( cell.getRow()-1 >= 0){
+        if (cell != null && cell.getRow()-1 >= 0){
             for (int row = cell.getRow()-1; row >= 0; row--) {
                 if(editState.cells[row][cell.getCol()].state == States.FREE) {
                     continue;
@@ -323,11 +322,9 @@ public class EditStage extends Stage {
                 break;
             }
         }
-        if(pairs.size() == editState.numberOfCircles){
-            return;
-        }
+
         //going down
-        if ( cell.getRow()+1 < editState.size){
+        if (cell != null && cell.getRow()+1 < editState.size){
             for (int row = cell.getRow()+1; row < editState.size; row++) {
                 if(editState.cells[row][cell.getCol()].state == States.FREE) {
                     continue;
@@ -341,11 +338,9 @@ public class EditStage extends Stage {
                 break;
             }
         }
-        if(pairs.size() == editState.numberOfCircles){
-            return;
-        }
+
         //going left
-        if ( cell.getCol()-1 >= 0){
+        if (cell != null && cell.getCol()-1 >= 0){
             for (int col = cell.getCol() - 1; col >= 0 ; col--) {
                 if (editState.cells[cell.getRow()][col].state == States.FREE) {
                     continue;
@@ -359,11 +354,9 @@ public class EditStage extends Stage {
                 break;
             }
         }
-        if(pairs.size() == editState.numberOfCircles){
-            return;
-        }
+
         //going right
-        if ( cell.getCol()+1 < editState.size){
+        if (cell != null && cell.getCol()+1 < editState.size){
             for (int col = cell.getCol() + 1; col < editState.size ; col++) {
                 if (editState.cells[cell.getRow()][col].state == States.FREE) {
                     continue;
@@ -377,6 +370,7 @@ public class EditStage extends Stage {
                 break;
             }
         }
+
         if(pairs.size() == editState.numberOfCircles){
             return;
         }
@@ -438,15 +432,11 @@ public class EditStage extends Stage {
                 for (int i = cell1.getRow()+1; i < cell2.getRow(); i++) {
                     editState.cells[i][cell1.getCol()].state = States.FREE;
                 }
-                cell1.direction = Direction.NONE;
-                cell2.direction = Direction.NONE;
             }
             else{
                 for (int i = cell2.getRow()+1; i < cell1.getRow(); i++) {
                     editState.cells[i][cell1.getCol()].state = States.FREE;
                 }
-                cell1.direction = Direction.NONE;
-                cell2.direction = Direction.NONE;
             }
         }
         else{
@@ -454,17 +444,14 @@ public class EditStage extends Stage {
                 for (int i = cell1.getCol()+1; i < cell2.getCol(); i++) {
                     editState.cells[cell1.getRow()][i].state = States.FREE;
                 }
-                cell1.direction = Direction.NONE;
-                cell2.direction = Direction.NONE;
             }
             else{
                 for (int i = cell2.getCol()+1; i < cell1.getCol(); i++) {
                     editState.cells[cell1.getRow()][i].state = States.FREE;
                 }
-                cell1.direction = Direction.NONE;
-                cell2.direction = Direction.NONE;
             }
         }
+        cell1.direction = Direction.NONE;
+        cell2.direction = Direction.NONE;
     }
-
 }
