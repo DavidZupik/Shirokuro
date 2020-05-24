@@ -1,5 +1,6 @@
 package Main.Edit.Pane;
 
+import Main.Direction;
 import Main.Game.States.CellState;
 import Main.Shirokuro;
 import Main.Stages.EditStage;
@@ -25,6 +26,7 @@ public class EditCellPane extends Pane {
         this.setOnMouseClicked(e->{
             Shirokuro.getEditStage().editState.cells[row][col].state = EditStage.state;
             Shirokuro.getEditStage().solvable = false;
+            makeOccupyFree();
             Shirokuro.getEditStage().setCenterCircleFill();
             Shirokuro.getEditStage().editPane.paint();
         });
@@ -59,6 +61,19 @@ public class EditCellPane extends Pane {
         sp.getChildren().addAll(rect, c);
         getChildren().add(sp);
 
+    }
+
+    void makeOccupyFree(){
+        for (CellState[] cell : Shirokuro.getEditStage().editState.cells) {
+            for (CellState cellState : cell) {
+                if(cellState.state == States.OCCUPY_HORIZ || cellState.state == States.OCCUPY_VERTI){
+                    cellState.state = States.FREE;
+                }
+                if(cellState.state == States.BLACK || cellState.state == States.WHITE){
+                    cellState.direction = Direction.NONE;
+                }
+            }
+        }
     }
 
 }
