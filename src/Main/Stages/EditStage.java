@@ -274,7 +274,6 @@ public class EditStage extends Stage {
     }
     void saveButtonAction(){
         if(solvable) {
-            editState.countCircles();
             saveGame = new SaveGame(this, true);
             saveGame.show();
         }
@@ -284,6 +283,7 @@ public class EditStage extends Stage {
     }
     void checkButtonAction(){
         if(numberOfCirclesWB()) {
+            editState.countCircles();
             if(isSolvable()) {
                 solvable = !solvable;
                 setCenterCircleFill();
@@ -291,8 +291,122 @@ public class EditStage extends Stage {
         }
     }
 
+    CellState findNextWhite(int row, int col){
+        for (int j = col; j < editState.cells.length; j++) {
+            if(!pairs.containsKey(editState.cells[row][j])) {
+                if (editState.cells[row][j].state == States.WHITE) {
+                    return editState.cells[row][j];
+                }
+            }
+        }
+
+        for (int i = row+1; i < editState.cells.length; i++) {
+            for (int j = 0; j < editState.cells.length; j++) {
+                if(editState.cells[i][j].state == States.WHITE){
+                    return editState.cells[i][j];
+                }
+            }
+        }
+        return null;
+    }
+
     boolean isSolvable(){
-        return false;
+        solvableBacktrack(findNextWhite(0, 0));
+        return pairs.size() == editState.numberOfCircles;
+    }
+
+    //todo spravit spajanie a odpajanie trubiek
+    void solvableBacktrack(CellState cell){
+        //going top
+        if(pairs.size() == editState.numberOfCircles){
+            return;
+        }
+        if ( cell.getRow()-1 >= 0){
+            for (int row = cell.getRow()-1; row >= 0; row--) {
+                if(editState.cells[row][cell.getCol()].state == States.FREE) {
+                    continue;
+                }
+                if (editState.cells[row][cell.getCol()].state == States.BLACK
+                        && editState.cells[row][cell.getCol()].direction == Direction.NONE) {
+                    CellState blackCell = editState.cells[row][cell.getCol()];
+                    blackCell.direction = Direction.DOWN;
+                    cell.direction = Direction.UP;
+                    addPair(cell, blackCell);
+                    solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
+                }
+                break;
+            }
+        }
+        //going down
+        if ( cell.getRow()+1 < editState.size){
+            for (int row = cell.getRow()+1; row < editState.size; row++) {
+                if(editState.cells[row][cell.getCol()].state == States.FREE) {
+                    continue;
+                }
+                if (editState.cells[row][cell.getCol()].state == States.BLACK
+                        && editState.cells[row][cell.getCol()].direction == Direction.NONE) {
+                    CellState blackCell = editState.cells[row][cell.getCol()];
+                    blackCell.direction = Direction.UP;
+                    cell.direction = Direction.DOWN;
+                    addPair(cell, blackCell);
+                    solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
+                }
+                break;
+            }
+        }
+        //going left
+        if ( cell.getCol()-1 >= 0){
+            for (int col = cell.getCol() - 1; col >= 0 ; col--) {
+                if (editState.cells[cell.getRow()][col].state == States.FREE) {
+                    continue;
+                }
+                if (editState.cells[cell.getRow()][col].state == States.BLACK
+                        && editState.cells[cell.getRow()][col].direction == Direction.NONE) {
+                    CellState blackCell = editState.cells[cell.getRow()][col];
+                    blackCell.direction = Direction.RIGHT;
+                    cell.direction = Direction.LEFT;
+                    addPair(cell, blackCell);
+                    solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
+                }
+                break;
+            }
+        }
+        //going right
+        if ( cell.getCol()+1 < editState.size){
+            for (int col = cell.getCol() + 1; col < editState.size ; col++) {
+                if (editState.cells[cell.getRow()][col].state == States.FREE) {
+                    continue;
+                }
+                if (editState.cells[cell.getRow()][col].state == States.BLACK
+                        && editState.cells[cell.getRow()][col].direction == Direction.NONE) {
+                    CellState blackCell = editState.cells[cell.getRow()][col];
+                    blackCell.direction = Direction.LEFT;
+                    cell.direction = Direction.RIGHT;
+                    addPair(cell, blackCell);
+                    solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
+                }
+                break;
+            }
+        }
+        deleteLastPair();
+    }
+
+    void addPair(CellState cell1, CellState cell2){
+        pairs.put(cell1, cell2);
+        pairs.put(cell2, cell1);
+    }
+
+    void deleteLastPair(){
+        if(pairs.size() == 0){
+            return;
+        }
+        List<CellState> list = new ArrayList<>(pairs.keySet());
+        CellState cell1 = list.remove(list.size() - 1);
+        CellState cell2 = list.remove(list.size() - 1);
+        cell1.direction = Direction.NONE;
+        cell2.direction = Direction.NONE;
+        pairs.remove(cell1);
+        pairs.remove(cell2);
     }
 
 }
