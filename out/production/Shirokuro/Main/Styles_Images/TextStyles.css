@@ -1,12 +1,10 @@
 .textTitle{
-
-    -fx-fill: linear-gradient(from 25% 25% to 100% 100%, #ad370a, #581c06);
+    -fx-fill: linear-gradient(to right, #fca728, #8b4100);
     -fx-stroke: black;
     -fx-font-width: 2px;
     -fx-font-size: 5em;
     -fx-font-weight: bolder;
     -fx-font-family: "JetBrains Mono";
-
 }
 .helpText{
     -fx-fill: black;

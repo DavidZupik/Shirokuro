@@ -83,7 +83,7 @@ public class LevelSelection extends Stage {
 
     }
 
-    void makeAndFillGridPane(){
+    private void makeAndFillGridPane(){
         for (int rowIndex = 0; rowIndex < 5; rowIndex++){
             RowConstraints rc = new RowConstraints();
             rc.setVgrow(Priority.ALWAYS);
@@ -106,15 +106,15 @@ public class LevelSelection extends Stage {
             topPane.add(button, i % 5, i / 5);
         }
     }
-    void getBackButtonAction(){
+    private void getBackButtonAction(){
         Shirokuro.getMainMenu().show();
         this.close();
     }
-    void loadBackButtonAction(){
+    private void loadBackButtonAction(){
         loadGame = new LoadGame(this);
         loadGame.show();
     }
-    void levelButtonAction(int i){
+    private void levelButtonAction(int i){
         Shirokuro.setGameStage(new GameStage(i));
         Shirokuro.getGameStage().setUpStage();
         Shirokuro.getGameStage().show();

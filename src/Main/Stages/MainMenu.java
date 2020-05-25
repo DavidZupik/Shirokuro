@@ -104,23 +104,23 @@ public class MainMenu extends Stage {
 
     }
 
-    void playButtonAction(){
+    private void playButtonAction(){
         Shirokuro.setLvlSelection(new LevelSelection());
         Shirokuro.getLvlSelection().show();
         this.close();
     }
-    void editButtonAction(){
+    private void editButtonAction(){
         Shirokuro.setEditStage(new EditStage());
         Shirokuro.getEditStage().setUpEditStage();
         Shirokuro.getEditStage().show();
         this.close();
     }
-    void helpButtonAction(){
+    private void helpButtonAction(){
         Shirokuro.setHelp(new Help());
         Shirokuro.getHelp().show();
         this.close();
     }
-    void audioButtonAction(){
+    private void audioButtonAction(){
         if(sound){
             Shirokuro.getSounds().pause();
             audio.setGraphic(noAudioIMG);
@@ -132,7 +132,7 @@ public class MainMenu extends Stage {
             sound = true;
         }
     }
-    void loadImages(){
+    private void loadImages(){
         audioIMG = new ImageView(new Image("./Main/Styles_Images/Images/audio.png"));
         noAudioIMG = new ImageView(new Image("./Main/Styles_Images/Images/noaudio.png"));
         minusIMG = new ImageView(new Image("./Main/Styles_Images/Images/minus.png"));

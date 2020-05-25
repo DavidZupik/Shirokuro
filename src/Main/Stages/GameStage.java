@@ -62,14 +62,12 @@ public class GameStage extends Stage {
             e.printStackTrace();
         }
     }
-
     public GameStage(int lvlN){
         lvl = lvlN;
         this.loadLVL = null;
         gamePane = new GamePane();
         state = new GameState(lvl);
     }
-
     public void setUpStage(){
 
         //top-pane, timer
@@ -138,7 +136,6 @@ public class GameStage extends Stage {
 
         gamePane.paint();
     }
-
     public static Integer getLvl() {
         return lvl;
     }
@@ -147,12 +144,12 @@ public class GameStage extends Stage {
         return temp.exists();
     }
 
-    void getBackButtonAction(){
+    private void getBackButtonAction(){
         timeCounter.stop();
         Shirokuro.getLvlSelection().show();
         this.close();
     }
-    void saveButtonAction(){
+    private void saveButtonAction(){
         timeCounter.stop();
         saveGame = new SaveGame(this, false);
         saveGame.show();

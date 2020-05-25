@@ -92,11 +92,11 @@ public class Help extends Stage {
 
     }
 
-    void getBackButtonAction(){
+    private void getBackButtonAction(){
         Shirokuro.getMainMenu().show();
         this.close();
     }
-    void playButtonAction(){
+    private void playButtonAction(){
         Shirokuro.getLvlSelection().show();
         this.close();
     }
