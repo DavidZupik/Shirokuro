@@ -344,7 +344,7 @@
     -fx-min-height: 25;
     -fx-min-width: 50;
     -fx-alignment: center;
-    -fx-background-color: linear-gradient(to right, #abbaab, #ffffff);
+    -fx-background-color: linear-gradient(to right, #ff416c, #ff4b2b);
 }
 .edit-buttons-selected{
     -fx-background-radius: 5 5 5 5;
