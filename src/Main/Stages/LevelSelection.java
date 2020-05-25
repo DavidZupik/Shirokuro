@@ -28,6 +28,9 @@ public class LevelSelection extends Stage {
 
     Stage loadGame;
 
+    /**
+     * Class constructor
+     */
     public LevelSelection(){
 
         topPane = new GridPane();

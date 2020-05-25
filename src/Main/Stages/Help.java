@@ -26,8 +26,11 @@ public class Help extends Stage {
     Button exit = new Button("Exit");
     Button play = new Button("Play");
 
-    public Help(){
 
+    /**
+     * konstruktor
+     */
+    public Help(){
         //textpane text
         text.setText("\nRules:\n" +
                     "\nEN\n"+

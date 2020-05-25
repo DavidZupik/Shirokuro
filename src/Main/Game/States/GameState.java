@@ -21,7 +21,10 @@ public class GameState implements Serializable {
     public static CellState clickedCell = null;
     public HashMap<CellState, CellState> pairs;
 
-    //constructor
+    /**
+     * konstruktor
+     * @param levelNumber cislo levelu ktory sa nacita
+     */
     public GameState(int levelNumber){
         time = 0;
         numberOfCircles = 0;
@@ -30,7 +33,11 @@ public class GameState implements Serializable {
         pairs = new HashMap<>();
         loadLevelCFG(String.valueOf(levelNumber));
     }
-    //constructor for edited game
+
+    /**
+     * konstruktor
+     * @param state v tejto premenej je ulozeny naeditovany level
+     */
     public GameState(EditState state){
         this.size = state.size;
         this.cells = Arrays.copyOf(state.cells, state.cells.length);
@@ -38,7 +45,11 @@ public class GameState implements Serializable {
         this.numberOfCircles = state.numberOfCircles;
         pairs = new HashMap<>();
     }
-    //read game state from configuration
+
+    /**
+     * nacita konfiguraciu hry zo suboru
+     * @param levelName urcuje z ktoreho suboru ma byt hra nahrana
+     */
     public void loadLevelCFG(String levelName){
         String line;
         try{
@@ -70,14 +81,23 @@ public class GameState implements Serializable {
         }
     }
 
-    //save game as *.lvl
+    /**
+     * ulozenie rozohranej hry
+     * @param fileName urcuje ako sa ma subor volat
+     * @throws IOException
+     */
     public void saveGame(String fileName) throws IOException{
         ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream("./src/Load/" + fileName + ".lvl"));
         fs.writeObject(this);
         fs.close();
     }
 
-    //load game
+    /**
+     * nacitanie ulozenej hry
+     * @param fileName urcuje ktory subor ma byt nahrany
+     * @return vrati objekt v ktorom je hra ulozena
+     * @throws Exception
+     */
     public static GameState loadGame(String fileName) throws Exception {
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("./src/Load/" + fileName + ".lvl"));
         GameState gameState = (GameState)is.readObject();
@@ -85,7 +105,12 @@ public class GameState implements Serializable {
         return gameState;
     }
 
-    //load edited game
+    /**
+     * nacitanie naeditovanej hry
+     * @param fileName urcuje ktory subor ma byt nahrany
+     * @return vrati objekt v ktorom je naeditovany level ulozeny
+     * @throws Exception
+     */
     public static EditState loadEditGame(String fileName) throws Exception{
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("./src/Load/" + fileName + ".edit"));
         EditState editState = (EditState)is.readObject();
@@ -93,7 +118,11 @@ public class GameState implements Serializable {
         return editState;
     }
 
-    //get cell from string
+    /**
+     * prerobi string na stav v ktorom je bunka
+     * @param s string pomocou ktoreho sa urcuje stav
+     * @return stav daneho bunka
+     */
     public States getState(String s){
         switch (s){
             case "b":
@@ -109,7 +138,11 @@ public class GameState implements Serializable {
         }
     }
 
-    //get direction from string
+    /**
+     * prerobi st ring na smer v ktorom je bunka
+     * @param s string pomocou ktoreho sa urcuje smer
+     * @return vrati smer ktorym smeruje bunka
+     */
     public Direction getDirection(String s){
         switch (s){
             case "u":
@@ -128,17 +161,27 @@ public class GameState implements Serializable {
         }
     }
 
-    //return cell in array
+    /**
+     * @param row riadok bunky ktoru chceme
+     * @param col stlpec bunky ktoru chceme
+     * @return vrati danu bunku z pola
+     */
     public CellState getCell(int row, int col){
         return cells[row][col];
     }
 
-    //check if row or col is free to make connection
+    /**
+     * @param cell druha kliknuta bunka
+     * @return true ak prva kliknuta bunka ma rovnaky stlpec alebo riadok ako druha kliknuta bunka
+     */
     public static boolean checkRowCol(CellState cell){
         return cell.col == clickedCell.col || cell.row == clickedCell.row;
     }
 
-    //check if cell is free to connect
+    /**
+     * @param cell druha kliknuta bunka
+     * @return true ak je volna cesta od prvej kliknutej bunky k druhej kliknutej bunke
+     */
     public static boolean checkFreeCell(CellState cell){
         if(clickedCell.col == cell.col){
             if(clickedCell.row < cell.row){
@@ -176,7 +219,10 @@ public class GameState implements Serializable {
         return true;
     }
 
-    //connect cells
+    /**
+     * metoda ktora spoji prvu kliknutu a druhu klinkutu bunku
+     * @param cell druha kliknuta bunka
+     */
     public static void joinCells(CellState cell){
         if(clickedCell.col == cell.col){
             if(clickedCell.row < cell.row){
@@ -212,14 +258,20 @@ public class GameState implements Serializable {
         }
     }
 
-    //add connected pair to array
+    /**
+     * metoda prida par do pola
+     * @param cell druha kliknuta bunka
+     */
     public static void addPair(CellState cell){
         removePair(cell);
         Shirokuro.getGameStage().state.getPairs().put(clickedCell, cell);
         Shirokuro.getGameStage().state.getPairs().put(cell, clickedCell);
     }
 
-    //remove connected pair to array
+    /**
+     * odstani par z pola
+     * @param cell druha kliknuta bunka
+     */
     public static void removePair(CellState cell){
         if(Shirokuro.getGameStage().state.getPairs().containsKey(cell)){
             Shirokuro.getGameStage().state.getPairs().remove(Shirokuro.getGameStage().state.getPairs().get(cell));
@@ -227,7 +279,11 @@ public class GameState implements Serializable {
         }
     }
 
-    //delete connection between cells in horizontal direction
+    /**
+     * metoda odstrani spojenie danje bunky horizontalne
+     * @param cell bunka ktorej ma byt odstanene spojenie
+     * @param colOff smer ktorym sa ma odstanovat spojenie
+     */
     public static void releaseCellH(CellState cell, int colOff){
         if(colOff == 1){
             CellState cell2 = Shirokuro.getGameStage().state.getCell(cell.row, cell.col+1);
@@ -262,7 +318,11 @@ public class GameState implements Serializable {
         cell.state = States.FREE;
     }
 
-    //delete connection between cells in vertical direction
+    /**
+     * metoda odstrani spojenie danje bunky vertikalne
+     * @param cell bunka ktorej ma byt odstanene spojenie
+     * @param rowOff smer ktorym sa ma odstanovat spojenie
+     */
     public static void releaseCellV(CellState cell, int rowOff){
         if(rowOff == 1){
             CellState cell2 = Shirokuro.getGameStage().state.getCell(cell.row+1,cell.col);
@@ -297,7 +357,10 @@ public class GameState implements Serializable {
         cell.state = States.FREE;
     }
 
-    //remove cells directions
+    /**
+     * metoda odstrani smer ktorym smeruju bunky ktore boli spojene
+     * @param cell bunka ktorej ma byt odstanene spojenie
+     */
     public static void releaseCellBW(CellState cell){
         int row = cell.row;
         int col = cell.col;
@@ -361,12 +424,16 @@ public class GameState implements Serializable {
         cell.direction = Direction.NONE;
     }
 
-    //get how many cirlces are in board
+    /**
+     * @return pocet buniek v ktorych je kruh
+     */
     public int getNumberOfCircles() {
         return numberOfCircles;
     }
 
-    //get pair array
+    /**
+     * @return pole s parmi
+     */
     public HashMap<CellState, CellState> getPairs() {
         return pairs;
     }

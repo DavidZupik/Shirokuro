@@ -37,9 +37,10 @@ public class MainMenu extends Stage {
     HBox bottomPane = new HBox();
     Text name = new Text("©Dávid Župík");
 
-
+    /**
+     * konstructor
+     */
     public MainMenu(){
-
         loadImages();
         //top pane
         //set buttons

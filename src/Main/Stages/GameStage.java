@@ -48,6 +48,10 @@ public class GameStage extends Stage {
     Button exit = new Button("Exit");
     Button save = new Button("Save");
 
+    /**
+     * konstruktor
+     * @param fName urcuje ktora ulozena hra ma byt nahrana
+     */
     public GameStage(String fName){
         try {
             this.loadLVL = fName;
@@ -62,12 +66,21 @@ public class GameStage extends Stage {
             e.printStackTrace();
         }
     }
+
+    /**
+     * konstruktor
+     * @param lvlN urcuje ktory level ma by nahrany
+     */
     public GameStage(int lvlN){
         lvl = lvlN;
         this.loadLVL = null;
         gamePane = new GamePane();
         state = new GameState(lvl);
     }
+
+    /**
+     * metoda vytvori stage a nacita vsetky komponenty
+     */
     public void setUpStage(){
 
         //top-pane, timer
@@ -136,9 +149,18 @@ public class GameStage extends Stage {
 
         gamePane.paint();
     }
+
+    /**
+     * @return level ktory sa momentalne hraje
+     */
     public static Integer getLvl() {
         return lvl;
     }
+
+    /**
+     * @param fName urcuje ktory subor sa ma preverit
+     * @return vrati true ak fName je editovany level alebo ulozeny level
+     */
     public static boolean savedLevel(String fName){
         File temp = new File(Shirokuro.directory + "\\"+fName+".lvl");
         return temp.exists();
