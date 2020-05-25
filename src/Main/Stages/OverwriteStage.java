@@ -53,13 +53,12 @@ public class OverwriteStage extends Stage {
 
     }
 
-    void noButtonAction(){
+    private void noButtonAction(){
         SaveGame.screenText.setText("A file with this name already exists.\n" +
                 "Please select different file name.");
         this.close();
     }
-
-    void yesButtonAction(String fileName){
+    private void yesButtonAction(String fileName){
         try {
             Shirokuro.getGameStage().state.saveGame(fileName);
         } catch (IOException ioException) {

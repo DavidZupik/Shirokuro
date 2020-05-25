@@ -307,17 +307,18 @@ public class EditStage extends Stage {
         return null;
     }
     private void solvableBacktrack(CellState cell){
+
         //going top
         if (cell != null && cell.getRow()-1 >= 0){
             for (int row = cell.getRow()-1; row >= 0; row--) {
-                if(editState.cells[row][cell.getCol()].state == States.FREE) {
-                    continue;
-                }
                 if (editState.cells[row][cell.getCol()].state == States.BLACK
                         && editState.cells[row][cell.getCol()].direction == Direction.NONE) {
                     CellState blackCell = editState.cells[row][cell.getCol()];
                     addPair(cell, blackCell);
                     solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
+                }
+                if(editState.cells[row][cell.getCol()].state == States.FREE) {
+                    continue;
                 }
                 break;
             }
@@ -416,15 +417,14 @@ public class EditStage extends Stage {
         }
     }
     private void deleteLastPair(){
-        if(pairs.size() == 0){
-            return;
+        if(pairs.size() > 0){
+            List<CellState> list = new ArrayList<>(pairs.keySet());
+            CellState cell1 = list.remove(list.size() - 1);
+            CellState cell2 = list.remove(list.size() - 1);
+            deletePipeBetween(cell1, cell2);
+            pairs.remove(cell1);
+            pairs.remove(cell2);
         }
-        List<CellState> list = new ArrayList<>(pairs.keySet());
-        CellState cell1 = list.remove(list.size() - 1);
-        CellState cell2 = list.remove(list.size() - 1);
-        deletePipeBetween(cell1, cell2);
-        pairs.remove(cell1);
-        pairs.remove(cell2);
     }
     private void deletePipeBetween(CellState cell1, CellState cell2){
         if(cell1.getCol() == cell2.getCol()){
