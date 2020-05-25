@@ -28,7 +28,6 @@ public class Shirokuro extends Application {
         mainMenu.show();
         setSounds(new Sounds());
         sounds.play();
-        sounds.pause();
 
     }
 

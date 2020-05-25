@@ -44,14 +44,14 @@ public class WinningStage extends Stage {
 
         text.getStyleClass().add("win-text");
 
-        getBack.getStyleClass().add("bottomButtonStyle");
+        getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-save");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e->{
             this.close();
             Shirokuro.getLvlSelection().show();
         });
 
-        next.getStyleClass().add("bottomButtonStyle");
+        next.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-save");
         next.setAlignment(Pos.CENTER);
         next.setOnAction(e->{
             this.close();

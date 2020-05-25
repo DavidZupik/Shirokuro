@@ -106,13 +106,13 @@ public class EditStage extends Stage {
         topPane.setCenter(solvableCircle);
         topPane.setLeft(leftButtons);
 
-        getBack.getStyleClass().add("bottomButtonStyle");
+        getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-edit");
         getBack.setOnAction(e-> getBackButtonAction());
 
-        check.getStyleClass().add("bottomButtonStyle");
+        check.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-edit");
         check.setOnAction(e-> checkButtonAction());
 
-        save.getStyleClass().add("bottomButtonStyle");
+        save.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-edit");
         save.setOnAction(e-> saveButtonAction());
 
         bottomPane = new BorderPane();

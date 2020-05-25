@@ -26,10 +26,10 @@
     -fx-background-radius: 8;
     -fx-background-color:
 
-            #d42122,
-            #d42122,
-            #d42122,
-            linear-gradient(to right, #906506, #f9d423, #906506);
+            #b31617,
+            #b31617,
+            #b31617,
+            linear-gradient(to right, #de2324, #d9b81c, #de2324);
 
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-pref-width: 250;
@@ -42,7 +42,7 @@
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0;
     -fx-background-radius: 8;
-    -fx-background-color: #7f5a01;
+    -fx-background-color: linear-gradient(to right, #ad1b1b, #b39818, #ad1b1b);
 
     -fx-font: 1.5em "JetBrains Mono";
     -fx-font-weight: bold;
@@ -91,21 +91,58 @@
 
 .bottomButtonStyle-game{
     -fx-background-color:
-            #213539,
-            #213539,
-            #213539,
-            linear-gradient(to right, #e6dada, #274046, #e6dada);
+            #af7b32,
+            #af7b32,
+            #af7b32,
+            linear-gradient(to right, #d1913c, #ffd194, #d1913c);
     -fx-text-fill: #000000;
 }
 .bottomButtonStyle-game:hover{
     -fx-background-color:
-            #1b2c2f,
-            #1b2c2f,
-            #1b2c2f,
-            linear-gradient(to right, #898282, #21373b, #898282);
+            #875f20,
+            #875f20,
+            #875f20,
+            linear-gradient(to right, #af7b32, #c29b71, #af7b32);
 }
 .bottomButtonStyle-game:pressed{
-    -fx-background-color: #1b2c2f;
+    -fx-background-color: #875f20;
+}
+
+.bottomButtonStyle-edit{
+    -fx-background-color:
+            #102a32,
+            #102a32,
+            #102a32,
+            #a83737;
+    -fx-text-fill: #000000;
+}
+.bottomButtonStyle-edit:hover{
+    -fx-background-color:
+            #102a32,
+            #102a32,
+            #102a32,
+            #f53d3d;
+}
+.bottomButtonStyle-edit:pressed{
+    -fx-background-color: #7a2828;
+}
+
+.bottomButtonStyle-save{
+    -fx-background-color:
+            #767f76,
+            #767f76,
+            #767f76,
+            #abbaab;
+}
+.bottomButtonStyle-save:hover{
+    -fx-background-color:
+            #3a3e3a,
+            #3a3e3a,
+            #3a3e3a,
+            #767f76;
+}
+.bottomButtonStyle-save:pressed{
+    -fx-background-color: #3a3e3a;
 }
 
 .bottomButtonStyle{
@@ -144,14 +181,13 @@
 .levelButtonStyle{
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0 ,0 0 7 0, 0 0 5 0, 0 0 4 0;
-    -fx-background-radius: 8;
+    -fx-background-radius: 5em;
     -fx-background-color:
 
             linear-gradient(from 0% 93% to 0% 100%, rgb(95, 26, 7) 0%, rgb(73, 18, 5) 100%),
             rgb(132, 42, 15);
 
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-    -fx-background-radius: 5em;
     -fx-pref-height: 70;
     -fx-pref-width: 90;
     -fx-font: 1.5em "JetBrains Mono";
@@ -163,36 +199,19 @@
 }
 .levelButtonStyle:hover{
 
-    -fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-    -fx-background-radius: 8;
     -fx-background-color:
 
             linear-gradient(from 0% 93% to 0% 100%, rgb(95, 26, 7) 0%, rgb(73, 18, 5) 100%),
             rgb(132, 42, 15);
 
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-    -fx-background-radius: 5em;
     -fx-pref-height: 65;
-    -fx-font: 1.5em "JetBrains Mono";
-    -fx-text-fill: #000000;
-    -fx-text-origin: baseline;
-    -fx-font-weight: bold;
 
 }
 .levelButtonStyle:pressed{
-    -fx-padding: 8 15 15 15;
     -fx-background-insets: 0;
-    -fx-background-radius: 8;
     -fx-background-color: rgba(95, 26, 7, 0.8);
-
     -fx-pref-height: 60;
-    -fx-background-radius: 5em;
-    -fx-font: 1.5em "JetBrains Mono";
-    -fx-text-fill: #000000;
-    -fx-text-origin: baseline;
-    -fx-font-weight: bold;
-
 }
 
 .loadButtonStyle{
@@ -201,14 +220,14 @@
     -fx-background-radius: 8;
     -fx-background-color:
 
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
+            #34436c,
+            #34436c,
+            #34436c,
+            linear-gradient(to right, #614385, #516395);
 
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font: 1.5em "JetBrains Mono";
-    -fx-pref-width: 300;
+    -fx-pref-width: 275;
     -fx-pref-height: 20;
     -fx-text-fill: #4f0006;
     -fx-text-origin: baseline;
@@ -216,34 +235,17 @@
 }
 .loadButtonStyle:hover{
 
-    -fx-padding: 8 15 15 15;
     -fx-background-insets: 0 ,0 0 7 0, 0 0 5 0, 0 0 4 0;
-    -fx-background-radius: 8;
     -fx-background-color:
+            #1f2a47,
+            #1f2a47,
+            #1f2a47,
+            linear-gradient(to right, #4e326f, #34436c);
 
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
-
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-    -fx-pref-width: 300;
     -fx-pref-height: 15;
-    -fx-font: 1.5em "JetBrains Mono";
-    -fx-font-weight: bold;
-
 }
 .loadButtonStyle:pressed{
-    -fx-padding: 8 15 15 15;
-    -fx-background-insets: 0;
-    -fx-background-radius: 8;
-    -fx-background-color:
-
-            radial-gradient(center 50% 50%, radius 100%, #a14d25, rgb(197, 78, 44));
-
-    -fx-font: 1.5em "JetBrains Mono";
-    -fx-font-weight: bold;
-    -fx-pref-width: 300;
+    -fx-background-color: #1f2a47;
     -fx-pref-height: 10;
 }
 
@@ -342,7 +344,7 @@
     -fx-min-height: 25;
     -fx-min-width: 50;
     -fx-alignment: center;
-    -fx-background-color: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+    -fx-background-color: linear-gradient(to right, #abbaab, #ffffff);
 }
 .edit-buttons-selected{
     -fx-background-radius: 5 5 5 5;

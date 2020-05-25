@@ -42,12 +42,12 @@ public class SaveGame extends Stage {
         topPane.setAlignment(Pos.CENTER);
         topPane.getChildren().add(screenText);
 
-        save.getStyleClass().add("bottomButtonStyle");
+        save.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-save");
         save.setAlignment(Pos.CENTER);
         save.setOnAction(e -> saveButtonAction(saveEditGame));
 
 
-        getBack.getStyleClass().add("bottomButtonStyle");
+        getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-save");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e-> getBackButtonAction());
 
