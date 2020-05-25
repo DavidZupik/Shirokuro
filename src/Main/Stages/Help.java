@@ -55,15 +55,15 @@ public class Help extends Stage {
         textPane.setMinHeight(450);
 
         //bottompane buttons
-        getBack.getStyleClass().add("bottomButtonStyle");
+        getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-help");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e -> getBackButtonAction() );
 
-        play.getStyleClass().add("bottomButtonStyle");
+        play.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-help");
         play.setAlignment(Pos.CENTER);
         play.setOnAction(e -> playButtonAction() );
 
-        exit.getStyleClass().add("bottomButtonStyle");
+        exit.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-help");
         exit.setAlignment(Pos.CENTER);
         exit.setOnAction(e -> Platform.exit());
 

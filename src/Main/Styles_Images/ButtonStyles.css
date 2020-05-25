@@ -4,10 +4,10 @@
     -fx-background-radius: 8;
     -fx-background-color:
 
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
+            #d42122,
+            #d42122,
+            #d42122,
+            linear-gradient(to right, #ff4e50, #f9d423, #ff4e50);
 
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-pref-width: 250;
@@ -26,10 +26,10 @@
     -fx-background-radius: 8;
     -fx-background-color:
 
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
+            #d42122,
+            #d42122,
+            #d42122,
+            linear-gradient(to right, #906506, #f9d423, #906506);
 
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-pref-width: 250;
@@ -42,9 +42,7 @@
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0;
     -fx-background-radius: 8;
-    -fx-background-color:
-
-            radial-gradient(center 50% 50%, radius 100%, #a14d25, rgb(197, 78, 44));
+    -fx-background-color: #7f5a01;
 
     -fx-font: 1.5em "JetBrains Mono";
     -fx-font-weight: bold;
@@ -53,22 +51,71 @@
 
 }
 
+.bottomButtonStyle-help{
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #490b0b, #490b0b),
+            #490b0b,
+            #490b0b,
+            linear-gradient(to right, #870000, #5c0d0d, #870000);
+    -fx-text-fill: #ded5d7;
+}
+.bottomButtonStyle-help:hover{
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #3b0707, #3b0707),
+            #490b0b,
+            #490b0b,
+            linear-gradient(to right, #5c0d0d, #3b0707, #5c0d0d);
+}
+.bottomButtonStyle-help:pressed{
+    -fx-background-color: linear-gradient(to right, #380808, #210101, #380808);
+}
+
+.bottomButtonStyle-levelSelection{
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #490b0b, #490b0b),
+            #490b0b,
+            #490b0b,
+            linear-gradient(to right, #870000, #5c0d0d, #870000);
+    -fx-text-fill: #ded5d7;
+}
+.bottomButtonStyle-levelSelection:hover{
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #3b0707, #3b0707),
+            #490b0b,
+            #490b0b,
+            linear-gradient(to right, #5c0d0d, #3b0707, #5c0d0d);
+}
+.bottomButtonStyle-levelSelection:pressed{
+    -fx-background-color: linear-gradient(to right, #380808, #210101, #380808);
+}
+
+.bottomButtonStyle-game{
+    -fx-background-color:
+            #213539,
+            #213539,
+            #213539,
+            linear-gradient(to right, #e6dada, #274046, #e6dada);
+    -fx-text-fill: #000000;
+}
+.bottomButtonStyle-game:hover{
+    -fx-background-color:
+            #1b2c2f,
+            #1b2c2f,
+            #1b2c2f,
+            linear-gradient(to right, #898282, #21373b, #898282);
+}
+.bottomButtonStyle-game:pressed{
+    -fx-background-color: #1b2c2f;
+}
+
 .bottomButtonStyle{
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
-    -fx-background-color:
-
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
-
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font: 1.5em "JetBrains Mono";
     -fx-pref-width: 130;
     -fx-pref-height: 50;
-    -fx-text-fill: #4f0006;
     -fx-text-origin: baseline;
     -fx-font-weight: bold;
 }
@@ -77,13 +124,6 @@
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0 ,0 0 7 0, 0 0 5 0, 0 0 4 0;
     -fx-background-radius: 8;
-    -fx-background-color:
-
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
-
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-pref-width: 130;
     -fx-pref-height: 45;
@@ -95,10 +135,6 @@
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0;
     -fx-background-radius: 8;
-    -fx-background-color:
-
-            radial-gradient(center 50% 50%, radius 100%, #a14d25, rgb(197, 78, 44));
-
     -fx-font: 1.5em "JetBrains Mono";
     -fx-font-weight: bold;
     -fx-pref-width: 130;
@@ -269,39 +305,33 @@
     -fx-background-radius: 8;
     -fx-background-color:
 
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #9a8478 , #1e130c);
+            linear-gradient(from 0% 93% to 0% 100%, #131923 0%, #131923 100%),
+            #131923,
+            #182028,
+            radial-gradient(center 70% 30%, radius 100%, #6c7a87, #29323c);
 
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-max-width: 40;
     -fx-max-height: 30;
 }
 .sound-buttons:hover{
-    -fx-padding: 8 15 15 15;
+
     -fx-background-insets: 0 ,0 0 7 0, 0 0 5 0, 0 0 4 0;
-    -fx-background-radius: 8;
     -fx-background-color:
 
-            linear-gradient(from 0% 93% to 0% 100%, #903b12 0%, #a34313 100%),
-            #9d4024,
-            #d86e3a ,
-            radial-gradient(center 50% 50%, radius 100%, #c54e2c , #d86e3a);
-
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-    -fx-max-width: 40;
+            linear-gradient(from 0% 93% to 0% 100%, #131923 0%, #131923 100%),
+            #131923,
+            #182028,
+            radial-gradient(center 50% 50%, radius 100%, #00a1ce, #015ad2);
     -fx-max-height: 25;
+
 }
 .sound-buttons:pressed{
-    -fx-padding: 8 15 15 15;
     -fx-background-insets: 0;
-    -fx-background-radius: 8;
     -fx-background-color:
 
-            radial-gradient(center 50% 50%, radius 100%, #a14d25, rgb(197, 78, 44));
+            radial-gradient(center 50% 50%, radius 100%, #00c6ff, #0072ff);
 
-    -fx-max-width: 40;
     -fx-max-height: 20;
 }
 

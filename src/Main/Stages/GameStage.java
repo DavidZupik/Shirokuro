@@ -85,15 +85,15 @@ public class GameStage extends Stage {
         topPane.setCenter(lbTimer);
 
         //bottom-pane, buttons
-        getBack.getStyleClass().add("bottomButtonStyle");
+        getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-game");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e -> getBackButtonAction());
 
-        save.getStyleClass().add("bottomButtonStyle");
+        save.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-game");
         save.setAlignment(Pos.CENTER);
         save.setOnAction(e -> saveButtonAction() );
 
-        exit.getStyleClass().add("bottomButtonStyle");
+        exit.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-game");
         exit.setAlignment(Pos.CENTER);
         exit.setOnAction(e -> Platform.exit());
 

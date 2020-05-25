@@ -23,6 +23,7 @@ public class EditBadSave extends Stage {
 
         //todo make better style for text
         text = new Text("Please, make solvable level.\n");
+        text.getStyleClass().add("lbTimer");
 
         ok.getStyleClass().add("bottomButtonStyle");
         ok.setAlignment(Pos.BOTTOM_CENTER);
@@ -35,7 +36,7 @@ public class EditBadSave extends Stage {
         root.setCenter(text);
         root.setBottom(bottomPane);
 
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(root, 300, 100);
         scene.getStylesheets().addAll("Main/Styles_Images/ButtonStyles.css",
                 "Main/Styles_Images/Background.css",
                 "Main/Styles_Images/PaneBG.css",

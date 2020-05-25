@@ -57,6 +57,7 @@ public class MainMenu extends Stage {
         plus.setOnAction( e -> Shirokuro.getSounds().volumeUP());
         //add buttons to top pane
         topPane.getChildren().addAll(minus, audio, plus);
+        topPane.setSpacing(10);
         topPane.setAlignment(Pos.TOP_RIGHT);
 
         //bottom pane

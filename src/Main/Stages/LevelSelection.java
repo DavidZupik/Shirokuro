@@ -42,15 +42,15 @@ public class LevelSelection extends Stage {
         makeAndFillGridPane();
 
         //bottom buttons
-        getBack.getStyleClass().add("bottomButtonStyle");
+        getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-levelSelection");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e-> getBackButtonAction());
 
-        load.getStyleClass().add("bottomButtonStyle");
+        load.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-levelSelection");
         load.setAlignment(Pos.CENTER);
         load.setOnAction(e-> loadBackButtonAction());
 
-        exit.getStyleClass().add("bottomButtonStyle");
+        exit.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-levelSelection");
         exit.setAlignment(Pos.CENTER);
         exit.setOnAction(e -> Platform.exit());
 

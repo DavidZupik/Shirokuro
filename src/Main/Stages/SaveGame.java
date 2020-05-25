@@ -21,16 +21,12 @@ public class SaveGame extends Stage {
 
     Button save = new Button("SAVE");
     Button getBack = new Button("BACK");
-
     BorderPane root = new BorderPane();
-
     public static Text screenText = new Text();
     HBox topPane = new HBox();
     TextField textField = new TextField();
     BorderPane bottomPane = new BorderPane();
-
     OverwriteStage overwrite;
-
     boolean canWrite = true;
     boolean saveEditGame;
 
@@ -53,7 +49,7 @@ public class SaveGame extends Stage {
 
         getBack.getStyleClass().add("bottomButtonStyle");
         getBack.setAlignment(Pos.CENTER);
-        getBack.setOnAction(e -> this.close() );
+        getBack.setOnAction(e-> getBackButtonAction());
 
         bottomPane.setRight(save);
         bottomPane.setLeft(getBack);
@@ -80,8 +76,7 @@ public class SaveGame extends Stage {
         this.setResizable(false);
 
     }
-
-    void saveButtonAction(boolean editGame){
+    private void saveButtonAction(boolean editGame){
         if(textField.getText().equals("")){
             screenText.setText("Empty file name.");
         }
@@ -118,5 +113,8 @@ public class SaveGame extends Stage {
         canWrite = true;
 
     }
-
+    private void getBackButtonAction(){
+        this.close();
+        screenText.setText("");
+    }
 }
