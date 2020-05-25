@@ -6,8 +6,6 @@ import Sound.Sounds;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-//todo refactor code ... make documentation
-
 public class Shirokuro extends Application {
 
     private static MainMenu mainMenu;

@@ -1,6 +1,6 @@
-**autor:** Dávid Župík
+**autor:** `Dávid Župík`
 
-**projekt:** Shirokuro
+**projekt:** `Shirokuro`
 
 Shirokuro je japonska logicka hra,
 v ktorej mate na hracej ploche poukladane biele a cierne kruhy.
