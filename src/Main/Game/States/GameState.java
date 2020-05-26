@@ -84,9 +84,9 @@ public class GameState implements Serializable {
     /**
      * ulozenie rozohranej hry
      * @param fileName urcuje ako sa ma subor volat
-     * @throws IOException
+     * @throws Exception ked sa zle nacita classa ktora ma byt ulozena
      */
-    public void saveGame(String fileName) throws IOException{
+    public void saveGame(String fileName) throws Exception{
         ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream("./src/Load/" + fileName + ".lvl"));
         fs.writeObject(this);
         fs.close();
@@ -96,7 +96,7 @@ public class GameState implements Serializable {
      * nacitanie ulozenej hry
      * @param fileName urcuje ktory subor ma byt nahrany
      * @return vrati objekt v ktorom je hra ulozena
-     * @throws Exception
+     * @throws Exception ked sa subor ktory ma byt nacitany nenachadza v zlozke alebo sa zle nacita classa
      */
     public static GameState loadGame(String fileName) throws Exception {
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("./src/Load/" + fileName + ".lvl"));
@@ -109,7 +109,7 @@ public class GameState implements Serializable {
      * nacitanie naeditovanej hry
      * @param fileName urcuje ktory subor ma byt nahrany
      * @return vrati objekt v ktorom je naeditovany level ulozeny
-     * @throws Exception
+     * @throws Exception ked sa subor ktory ma byt nacitany nenachadza v zlozke alebo sa zle nacita classa
      */
     public static EditState loadEditGame(String fileName) throws Exception{
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("./src/Load/" + fileName + ".edit"));

@@ -162,10 +162,9 @@ public class GameStage extends Stage {
      * @return vrati true ak fName je editovany level alebo ulozeny level
      */
     public static boolean savedLevel(String fName){
-        File temp = new File(Shirokuro.directory + "\\"+fName+".lvl");
+        File temp = new File(Shirokuro.directory + "\\src\\Load\\"+fName+".lvl");
         return temp.exists();
     }
-
     private void getBackButtonAction(){
         timeCounter.stop();
         Shirokuro.getLvlSelection().show();

@@ -15,26 +15,36 @@ public class Shirokuro extends Application {
     private static LevelSelection lvlSelection;
     private static WinningStage winningStage;
     private static EditStage editStage;
-
     public static String directory;
 
     @Override
     public void start(Stage stage){
-
-        directory = System.getProperty("user.dir")+"\\src\\Load";
+        directory = System.getProperty("user.dir");
         setMainMenu(new MainMenu());
         mainMenu.show();
         setSounds(new Sounds());
         sounds.play();
-
     }
 
+    /**
+     * @return vrati stage hry
+     */
     public static GameStage getGameStage() {
         return gameStage;
     }
+
+    /**
+     *
+     * @return vrati stage hlavneho menu
+     */
     public static MainMenu getMainMenu() {
         return mainMenu;
     }
+
+    /**
+     *
+     * @return vrati triedu zo zvukom
+     */
     public static Sounds getSounds() {
         return sounds;
     }

@@ -82,7 +82,7 @@ public class SaveGame extends Stage {
         }
         else{
             LoadGame.result = new ArrayList<>();
-            LoadGame.search(new File(Shirokuro.directory));
+            LoadGame.search(new File(Shirokuro.directory + "\\src\\Load"));
             for (String s : LoadGame.result) {
                 if(s.equals(textField.getText())){
                     canWrite = false;
@@ -94,15 +94,15 @@ public class SaveGame extends Stage {
                 if(editGame){
                     try{
                         Shirokuro.getEditStage().editState.editSaveGame(textField.getText());
-                    }catch (IOException ioException){
-                        ioException.printStackTrace();
+                    }catch (Exception err){
+                        err.printStackTrace();
                     }
                 }
                 else {
                     try {
                         Shirokuro.getGameStage().state.saveGame(textField.getText());
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
+                    } catch (Exception err) {
+                        err.printStackTrace();
                     }
                 }
             }else{
