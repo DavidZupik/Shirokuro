@@ -61,7 +61,7 @@ public class OverwriteStage extends Stage {
     private void yesButtonAction(String fileName){
         try {
             Shirokuro.getGameStage().state.saveGame(fileName);
-        } catch (IOException ioException) {
+        } catch (Exception ioException) {
             ioException.printStackTrace();
         }
         SaveGame.screenText.setText("File has been overwritten.");

@@ -4,6 +4,8 @@ import Main.Stages.*;
 import Sound.Sounds;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Shirokuro extends Application {
@@ -16,6 +18,8 @@ public class Shirokuro extends Application {
     private static WinningStage winningStage;
     private static EditStage editStage;
     public static String directory;
+    public static Scene scene;
+    public static Stage stage;
 
     @Override
     public void start(Stage stage){
@@ -48,6 +52,10 @@ public class Shirokuro extends Application {
     public static Sounds getSounds() {
         return sounds;
     }
+
+    /**
+     * @return vrati help stage
+     */
     public static Help getHelp() {
         return help;
     }
