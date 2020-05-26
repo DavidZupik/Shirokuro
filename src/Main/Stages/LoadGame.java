@@ -21,7 +21,7 @@ import java.util.Objects;
 public class LoadGame extends Stage {
 
     Button back = new Button("Back");
-    final File folder = new File(Shirokuro.directory);
+    final File folder = new File(Shirokuro.directory + "\\src\\Load");
     static ArrayList<String> result;
     VBox textBox = new VBox();
     VBox root;

@@ -29,7 +29,7 @@ public class LevelSelection extends Stage {
     Stage loadGame;
 
     /**
-     * Class constructor
+     * konstruktor
      */
     public LevelSelection(){
 

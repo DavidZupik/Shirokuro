@@ -82,7 +82,7 @@ public class SaveGame extends Stage {
         }
         else{
             LoadGame.result = new ArrayList<>();
-            LoadGame.search(new File(Shirokuro.directory));
+            LoadGame.search(new File(Shirokuro.directory + "\\src\\Load"));
             for (String s : LoadGame.result) {
                 if(s.equals(textField.getText())){
                     canWrite = false;

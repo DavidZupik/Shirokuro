@@ -15,18 +15,15 @@ public class Shirokuro extends Application {
     private static LevelSelection lvlSelection;
     private static WinningStage winningStage;
     private static EditStage editStage;
-
     public static String directory;
 
     @Override
     public void start(Stage stage){
-
-        directory = System.getProperty("user.dir")+"\\src\\Load";
+        directory = System.getProperty("user.dir");
         setMainMenu(new MainMenu());
         mainMenu.show();
         setSounds(new Sounds());
         sounds.play();
-
     }
 
     public static GameStage getGameStage() {
