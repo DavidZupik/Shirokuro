@@ -30,7 +30,6 @@ public class LoadGame extends Stage {
     LoadGame(Stage parentStage){
 
         result = new ArrayList<>();
-
         search(folder);
         ScrollPane scrollPane = new ScrollPane();
 

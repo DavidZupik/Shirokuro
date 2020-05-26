@@ -81,7 +81,7 @@ public class SaveGame extends Stage {
         }
         else{
             LoadGame.result = new ArrayList<>();
-            LoadGame.search(new File(Shirokuro.directory + "\\src\\Load"));
+            LoadGame.search(new File(Shirokuro.directory + "\\Load"));
             for (String s : LoadGame.result) {
                 if(s.equals(textField.getText())){
                     canWrite = false;
@@ -105,7 +105,7 @@ public class SaveGame extends Stage {
                     }
                 }
             }else{
-                overwrite = new OverwriteStage(this, textField.getText());
+                overwrite = new OverwriteStage(this, textField.getText(), editGame);
                 overwrite.show();
             }
         }

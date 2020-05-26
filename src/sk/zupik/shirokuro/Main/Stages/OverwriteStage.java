@@ -20,13 +20,13 @@ public class OverwriteStage extends Stage {
     BorderPane root = new BorderPane();
     BorderPane bottomPane = new BorderPane();
 
-    public OverwriteStage(Stage parentStage, String fileName){
+    public OverwriteStage(Stage parentStage, String fileName, boolean editGame){
 
         no.getStyleClass().add("overButtonStyle");
         no.setOnAction(e-> noButtonAction());
 
         yes.getStyleClass().add("overButtonStyle");
-        yes.setOnAction(e-> yesButtonAction(fileName));
+        yes.setOnAction(e-> yesButtonAction(fileName, editGame));
 
         bottomPane.setLeft(no);
         bottomPane.setRight(yes);
@@ -56,9 +56,14 @@ public class OverwriteStage extends Stage {
                 "Please select different file name.");
         this.close();
     }
-    private void yesButtonAction(String fileName){
+    private void yesButtonAction(String fileName, boolean editGame){
         try {
-            Shirokuro.getGameStage().state.saveGame(fileName);
+            if(!editGame) {
+                Shirokuro.getGameStage().state.saveGame(fileName);
+            }
+            else{
+                Shirokuro.getEditStage().editState.editSaveGame(fileName);
+            }
         } catch (Exception ioException) {
             ioException.printStackTrace();
         }

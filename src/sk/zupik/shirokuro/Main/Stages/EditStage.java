@@ -1,6 +1,7 @@
 package sk.zupik.shirokuro.Main.Stages;
 
 import sk.zupik.shirokuro.Main.Direction;
+import sk.zupik.shirokuro.Main.Edit.Pane.EditCellPane;
 import sk.zupik.shirokuro.Main.Edit.Pane.EditPane;
 import sk.zupik.shirokuro.Main.Edit.States.EditState;
 import sk.zupik.shirokuro.Main.Game.States.CellState;
@@ -260,12 +261,12 @@ public class EditStage extends Stage {
         return rectangle;
     }
     private void getBackButtonAction(){
-        this.close();
         Shirokuro.getMainMenu().show();
-
+        this.close();
     }
     private void saveButtonAction(){
         if(solvable) {
+            EditCellPane.makeOccupyFree();
             saveGame = new SaveGame(this, true);
             saveGame.show();
         }

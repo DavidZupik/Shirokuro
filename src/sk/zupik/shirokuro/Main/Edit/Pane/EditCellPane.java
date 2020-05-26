@@ -63,7 +63,7 @@ public class EditCellPane extends Pane {
 
     }
 
-    void makeOccupyFree(){
+    public static void makeOccupyFree(){
         for (CellState[] cell : Shirokuro.getEditStage().editState.cells) {
             for (CellState cellState : cell) {
                 if(cellState.state == States.OCCUPY_HORIZ || cellState.state == States.OCCUPY_VERTI){
