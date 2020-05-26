@@ -88,7 +88,6 @@ public class SaveGame extends Stage {
             else{
                 file = new File("./Load/" + fileName + ".lvl");
             }
-            String s = file.getPath();
             fileExist = file.exists();
 
             if(!fileExist) {
