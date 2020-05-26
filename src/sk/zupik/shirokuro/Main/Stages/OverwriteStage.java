@@ -20,6 +20,12 @@ public class OverwriteStage extends Stage {
     BorderPane root = new BorderPane();
     BorderPane bottomPane = new BorderPane();
 
+    /**
+     * konstruktor triedy
+     * @param parentStage stage z ktoreho bola tato trieda zavolana
+     * @param fileName nazov suboru
+     * @param editGame je true ak sa jedna o prepisovanie naeditovanej hry
+     */
     public OverwriteStage(Stage parentStage, String fileName, boolean editGame){
 
         no.getStyleClass().add("overButtonStyle");

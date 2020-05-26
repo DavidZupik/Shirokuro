@@ -18,6 +18,11 @@ public class EditCellPane extends Pane {
     double height;
     double width;
 
+    /**
+     * konstruktor triedy
+     * @param row urci riadok bunky
+     * @param col urci stlpec bunky
+     */
     public EditCellPane(int row, int col){
         this.row = row;
         this.col = col;
@@ -32,6 +37,9 @@ public class EditCellPane extends Pane {
         });
     }
 
+    /**
+     * vykreslenie bunky
+     */
     public void paint(){
         getChildren().clear();
         CellState cell = Shirokuro.getEditStage().editState.cells[row][col];
@@ -63,6 +71,10 @@ public class EditCellPane extends Pane {
 
     }
 
+    /**
+     * vsetky bunky ktore su v inom stave ako white alebo black hodi do free
+     * bunkam ktore maju stav white alebo black hodi smer none
+     */
     public static void makeOccupyFree(){
         for (CellState[] cell : Shirokuro.getEditStage().editState.cells) {
             for (CellState cellState : cell) {

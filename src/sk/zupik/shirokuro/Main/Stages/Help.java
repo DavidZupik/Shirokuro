@@ -28,7 +28,7 @@ public class Help extends Stage {
 
 
     /**
-     * konstruktor
+     * konstruktor triedy
      */
     public Help(){
         //textpane text

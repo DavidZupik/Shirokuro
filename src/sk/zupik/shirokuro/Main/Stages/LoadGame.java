@@ -27,6 +27,10 @@ public class LoadGame extends Stage {
     VBox root;
     BorderPane bottomPane;
 
+    /**
+     * konstruktor triedy
+     * @param parentStage stage z ktoreho bola tato trieda zavolana
+     */
     LoadGame(Stage parentStage){
 
         result = new ArrayList<>();
@@ -82,6 +86,11 @@ public class LoadGame extends Stage {
 
     }
 
+    /**
+     * metoda hlada vsetky zlozky z koncovkou lvl a edit v subore
+     * a vklada ich do pola
+     * @param folder subor v ktorom hlada
+     */
     public static void search(final File folder) {
         folder.mkdirs();
         for (final File f : Objects.requireNonNull(folder.listFiles())) {

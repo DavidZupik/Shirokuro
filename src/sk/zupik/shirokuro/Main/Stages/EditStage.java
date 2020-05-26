@@ -53,11 +53,18 @@ public class EditStage extends Stage {
     public HashMap<CellState, CellState> pairs;
 
 
+    /**
+     * konstruktor triedy
+     */
     public EditStage(){
         editState = new EditState(size);
         editPane = new EditPane();
         editPane.setAlignment(Pos.CENTER);
     }
+
+    /**
+     * nastavenie komponentov ktore sa zobrazia v scene
+     */
     public void setUpEditStage(){
         solvableCircle = solvableCircleComponents();
 
@@ -144,6 +151,11 @@ public class EditStage extends Stage {
         editPane.paint();
 
     }
+
+    /**
+     * metoda nastavi tlacitko na clicked
+     * @param button tlacikto ktore bolo stlacenie
+     */
     public void setClickedStyle(Button button){
 
         whiteCellButton.getStyleClass().clear();
@@ -166,6 +178,12 @@ public class EditStage extends Stage {
             blackCellButton.getStyleClass().add("edit-buttons");
         }
     }
+
+    /**
+     * zmenenie stredneho kruhu
+     * cervena -> naeditovany level sa neda ulozit (neriesitelne/neskotrolovane)
+     * zelena -> naeditovany level sa moze ulozit
+     */
     public void setCenterCircleFill(){
         if(solvable){
             solvableCircle.setFill(Color.GREEN);
@@ -174,6 +192,10 @@ public class EditStage extends Stage {
             solvableCircle.setFill(Color.RED);
         }
     }
+
+    /**
+     * @return vrati true ak pocet bielych kruhov == pocet ciernych kruhov != 0
+     */
     public boolean numberOfCirclesWB(){
         int b = 0;
         int w = 0;

@@ -27,7 +27,7 @@ public class MainMenu extends Stage {
     Button audio;
     Button plus;
     Button minus;
-    boolean sound = true;
+    public boolean sound = true;
     ImageView audioIMG;
     ImageView noAudioIMG;
     ImageView plusIMG;
@@ -38,7 +38,7 @@ public class MainMenu extends Stage {
     Text name = new Text("©Dávid Župík");
 
     /**
-     * konstructor
+     * konstructor triedy
      */
     public MainMenu(){
         loadImages();
@@ -105,6 +105,27 @@ public class MainMenu extends Stage {
 
     }
 
+    /**
+     * @return vrati audio
+     */
+    public Button getAudio() {
+        return audio;
+    }
+
+    /**
+     * @return vrati obrazok audia ktore hraje
+     */
+    public ImageView getAudioIMG() {
+        return audioIMG;
+    }
+
+    /**
+     * @return vrati obrazok audia ktore je vypnute
+     */
+    public ImageView getNoAudioIMG() {
+        return noAudioIMG;
+    }
+
     private void playButtonAction(){
         Shirokuro.setLvlSelection(new LevelSelection());
         Shirokuro.getLvlSelection().show();
@@ -139,6 +160,5 @@ public class MainMenu extends Stage {
         minusIMG = new ImageView(new Image("sk/zupik/shirokuro/Main/Styles_Images/Images/minus.png"));
         plusIMG = new ImageView(new Image("sk/zupik/shirokuro/Main/Styles_Images/Images/plus.png"));
     }
-
 
 }

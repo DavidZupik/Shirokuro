@@ -16,12 +16,19 @@ public class EditState implements Serializable {
     public CellState[][] cells;
     public int numberOfCircles = 0;
 
+    /**
+     * konstruktor triedy
+     * @param N velkost hracej plochy
+     */
     public EditState(int N){
         size = N;
         cells = new CellState[size][size];
         fillArray();
     }
 
+    /**
+     * vyplnenie pola bunkami ktore maju stav free a smer none
+     */
     public void fillArray(){
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -30,12 +37,20 @@ public class EditState implements Serializable {
         }
     }
 
+    /**
+     * ulozenie naeditovanej hry
+     * @param fileName nazov pod ktorym bude hra ulozena
+     * @throws IOException zle nacitanie triedy ktora ma byt ulozena
+     */
     public void editSaveGame(String fileName) throws IOException {
         ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream("./Load/" + fileName + ".edit"));
         fs.writeObject(this);
         fs.close();
     }
 
+    /**
+     * spocita pocet kruhov
+     */
     public void countCircles(){
         numberOfCircles = 0;
         for (CellState[] cell : cells) {

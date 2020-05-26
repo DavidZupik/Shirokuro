@@ -5,11 +5,17 @@ import javafx.scene.layout.GridPane;
 
 public class EditPane extends GridPane {
 
+    /**
+     * konstruktor triedy
+     */
     public EditPane(){
         setWidth(420);
         setHeight(420);
     }
 
+    /**
+     * vykreslenie editovacej plochy
+     */
     public void paint(){
         getChildren().clear();
         for (int i = 0; i < Shirokuro.getEditStage().size; i++) {

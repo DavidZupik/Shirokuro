@@ -29,6 +29,11 @@ public class SaveGame extends Stage {
     boolean fileExist = true;
     boolean saveEditGame;
 
+    /**
+     * konstruktor triedy
+     * @param parentStage stage z ktoreho bola tato trieda zavolana
+     * @param editGame je true ak sa jedna o ukladanie naeditovanej hry
+     */
     public SaveGame(Stage parentStage, boolean editGame){
 
         saveEditGame = editGame;
@@ -75,6 +80,7 @@ public class SaveGame extends Stage {
         this.setResizable(false);
 
     }
+
     private void saveButtonAction(boolean editGame){
         if(textField.getText().equals("")){
             screenText.setText("Empty file name.");
