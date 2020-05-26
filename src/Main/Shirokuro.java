@@ -26,12 +26,25 @@ public class Shirokuro extends Application {
         sounds.play();
     }
 
+    /**
+     * @return vrati stage hry
+     */
     public static GameStage getGameStage() {
         return gameStage;
     }
+
+    /**
+     *
+     * @return vrati stage hlavneho menu
+     */
     public static MainMenu getMainMenu() {
         return mainMenu;
     }
+
+    /**
+     *
+     * @return vrati triedu zo zvukom
+     */
     public static Sounds getSounds() {
         return sounds;
     }
