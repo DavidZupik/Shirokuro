@@ -26,7 +26,7 @@ public class SaveGame extends Stage {
     TextField textField = new TextField();
     BorderPane bottomPane = new BorderPane();
     OverwriteStage overwrite;
-    boolean canWrite = true;
+    boolean fileExist = true;
     boolean saveEditGame;
 
     public SaveGame(Stage parentStage, boolean editGame){
@@ -80,15 +80,17 @@ public class SaveGame extends Stage {
             screenText.setText("Empty file name.");
         }
         else{
-            LoadGame.result = new ArrayList<>();
-            LoadGame.search(new File(Shirokuro.directory + "\\Load"));
-            for (String s : LoadGame.result) {
-                if(s.equals(textField.getText())){
-                    canWrite = false;
-                }
+            String fileName = textField.getText();
+            File file;
+            if(editGame) {
+                file = new File("./Load/" + fileName + ".edit");
             }
+            else{
+                file = new File("./Load/" + fileName + ".lvl");
+            }
+            fileExist = file.exists();
 
-            if(canWrite) {
+            if(!fileExist) {
                 screenText.setText("Game was saved");
                 if(editGame){
                     try{
@@ -109,7 +111,7 @@ public class SaveGame extends Stage {
                 overwrite.show();
             }
         }
-        canWrite = true;
+        fileExist = true;
 
     }
     private void getBackButtonAction(){
