@@ -13,6 +13,13 @@ public class CellState implements Serializable {
     int col;
     public boolean clicked;
 
+    /**
+     * konstruktor triedy
+     * @param state  stav v ktorom sa bunka nachadza
+     * @param direction  smer ktorym bunka smeruje
+     * @param row  riadok bunky
+     * @param col  stlpec bunky
+     */
     public CellState(States state, Direction direction, int row, int col){
         clicked = false;
         this.direction = direction;
@@ -21,15 +28,16 @@ public class CellState implements Serializable {
         this.col = col;
     }
 
-    @Override
-    public String toString() {
-        return "[" + row + ", " +col + "] = " + state + "";
-    }
-
+    /**
+     * @return vrati riadok bunky
+     */
     public int getRow() {
         return row;
     }
 
+    /**
+     * @return vrati stlpec bunky
+     */
     public int getCol() {
         return col;
     }

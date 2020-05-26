@@ -21,6 +21,11 @@ public class CellPane extends Pane {
     double height;
     double width;
 
+    /**
+     * konstruktor triedy
+     * @param row urcuje riadok bunky
+     * @param col urcuje stlpec bunky
+     */
     public CellPane(int row, int col){
 
         this.row = row;
@@ -34,6 +39,9 @@ public class CellPane extends Pane {
         });
 
     }
+    /**
+     * kreslenie bunky
+     */
     public void paint(){
         getChildren().clear();
         CellState cell = Shirokuro.getGameStage().state.getCell(row, col);
@@ -104,14 +112,15 @@ public class CellPane extends Pane {
         sp.getChildren().addAll(rect, c, joins);
         getChildren().add(sp);
     }
-    public void checkCorrectness(CellState cell){
+
+    private void checkCorrectness(CellState cell){
         if (GameState.clickedCell == null) {
             firstClick(cell);
         } else {
             secondClick(cell);
         }
     }
-    public void firstClick(CellState cell){
+    private void firstClick(CellState cell){
         if(cell.state == States.OCCUPY_HORIZ){
             GameState.releaseCellH(cell, 0);
         }
@@ -129,7 +138,7 @@ public class CellPane extends Pane {
         }
         Shirokuro.getGameStage().gamePane.paint();
     }
-    public void secondClick(CellState cell){
+    private void secondClick(CellState cell){
         if(cell.state == States.BLACK || cell.state == States.WHITE) {
             if (cell.state != GameState.clickedCell.state) {
                 if (GameState.checkRowCol(cell)) {
@@ -149,10 +158,10 @@ public class CellPane extends Pane {
             GameState.clickedCell = null;
         }
     }
-    public void winGameStage(){
-        Shirokuro.getGameStage().close();
+    private void winGameStage(){
         Shirokuro.setWinningStage(new WinningStage(GameStage.getLvl()));
         Shirokuro.getWinningStage().show();
+        Shirokuro.getGameStage().close();
         Shirokuro.setGameStage(null);
     }
 

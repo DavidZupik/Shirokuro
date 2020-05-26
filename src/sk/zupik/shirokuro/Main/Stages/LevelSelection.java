@@ -28,7 +28,7 @@ public class LevelSelection extends Stage {
     Stage loadGame;
 
     /**
-     * konstruktor
+     * konstruktor triedy
      */
     public LevelSelection(){
 
@@ -108,7 +108,6 @@ public class LevelSelection extends Stage {
             topPane.add(button, i % 5, i / 5);
         }
     }
-
     private void getBackButtonAction(){
         Shirokuro.getMainMenu().show();
         this.close();

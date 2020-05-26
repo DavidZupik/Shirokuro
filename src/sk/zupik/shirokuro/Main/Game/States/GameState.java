@@ -4,7 +4,7 @@ import sk.zupik.shirokuro.Main.Direction;
 import sk.zupik.shirokuro.Main.Edit.States.EditState;
 import sk.zupik.shirokuro.Main.Shirokuro;
 import sk.zupik.shirokuro.Main.States;
-import sk.zupik.shirokuro.Util.FileResolver;
+import sk.zupik.shirokuro.Main.Util.FileResolver;
 
 import java.io.*;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ public class GameState implements Serializable {
     public HashMap<CellState, CellState> pairs;
 
     /**
-     * konstruktor
+     * konstruktor triedy
      * @param levelNumber cislo levelu ktory sa nacita
      */
     public GameState(int levelNumber){
@@ -35,7 +35,7 @@ public class GameState implements Serializable {
     }
 
     /**
-     * konstruktor
+     * konstruktor triedy
      * @param state v tejto premenej je ulozeny naeditovany level
      */
     public GameState(EditState state){
@@ -80,7 +80,6 @@ public class GameState implements Serializable {
             System.err.println("Something went wrong with loading " + e.getLocalizedMessage());
         }
     }
-
     /**
      * ulozenie rozohranej hry
      * @param fileName urcuje ako sa ma subor volat
@@ -91,7 +90,6 @@ public class GameState implements Serializable {
         fs.writeObject(this);
         fs.close();
     }
-
     /**
      * nacitanie ulozenej hry
      * @param fileName urcuje ktory subor ma byt nahrany
@@ -104,7 +102,6 @@ public class GameState implements Serializable {
         is.close();
         return gameState;
     }
-
     /**
      * nacitanie naeditovanej hry
      * @param fileName urcuje ktory subor ma byt nahrany
@@ -117,9 +114,8 @@ public class GameState implements Serializable {
         is.close();
         return editState;
     }
-
     /**
-     * prerobi string na stav v ktorom je bunka
+     * metoda prerobi string na stav v ktorom je bunka
      * @param s string pomocou ktoreho sa urcuje stav
      * @return stav daneho bunka
      */
@@ -137,9 +133,8 @@ public class GameState implements Serializable {
             default : return null;
         }
     }
-
     /**
-     * prerobi st ring na smer v ktorom je bunka
+     * metoda prerobi st ring na smer v ktorom je bunka
      * @param s string pomocou ktoreho sa urcuje smer
      * @return vrati smer ktorym smeruje bunka
      */
@@ -160,7 +155,6 @@ public class GameState implements Serializable {
             default : return null;
         }
     }
-
     /**
      * @param row riadok bunky ktoru chceme
      * @param col stlpec bunky ktoru chceme
@@ -169,7 +163,6 @@ public class GameState implements Serializable {
     public CellState getCell(int row, int col){
         return cells[row][col];
     }
-
     /**
      * @param cell druha kliknuta bunka
      * @return true ak prva kliknuta bunka ma rovnaky stlpec alebo riadok ako druha kliknuta bunka
@@ -177,7 +170,6 @@ public class GameState implements Serializable {
     public static boolean checkRowCol(CellState cell){
         return cell.col == clickedCell.col || cell.row == clickedCell.row;
     }
-
     /**
      * @param cell druha kliknuta bunka
      * @return true ak je volna cesta od prvej kliknutej bunky k druhej kliknutej bunke
@@ -218,7 +210,6 @@ public class GameState implements Serializable {
         }
         return true;
     }
-
     /**
      * metoda ktora spoji prvu kliknutu a druhu klinkutu bunku
      * @param cell druha kliknuta bunka
@@ -257,7 +248,6 @@ public class GameState implements Serializable {
             }
         }
     }
-
     /**
      * metoda prida par do pola
      * @param cell druha kliknuta bunka
@@ -267,7 +257,6 @@ public class GameState implements Serializable {
         Shirokuro.getGameStage().state.getPairs().put(clickedCell, cell);
         Shirokuro.getGameStage().state.getPairs().put(cell, clickedCell);
     }
-
     /**
      * odstani par z pola
      * @param cell druha kliknuta bunka
@@ -278,7 +267,6 @@ public class GameState implements Serializable {
             Shirokuro.getGameStage().state.getPairs().remove(cell);
         }
     }
-
     /**
      * metoda odstrani spojenie danje bunky horizontalne
      * @param cell bunka ktorej ma byt odstanene spojenie
@@ -317,7 +305,6 @@ public class GameState implements Serializable {
         }
         cell.state = States.FREE;
     }
-
     /**
      * metoda odstrani spojenie danje bunky vertikalne
      * @param cell bunka ktorej ma byt odstanene spojenie
@@ -356,7 +343,6 @@ public class GameState implements Serializable {
         }
         cell.state = States.FREE;
     }
-
     /**
      * metoda odstrani smer ktorym smeruju bunky ktore boli spojene
      * @param cell bunka ktorej ma byt odstanene spojenie
@@ -423,14 +409,12 @@ public class GameState implements Serializable {
         removePair(cell);
         cell.direction = Direction.NONE;
     }
-
     /**
      * @return pocet buniek v ktorych je kruh
      */
     public int getNumberOfCircles() {
         return numberOfCircles;
     }
-
     /**
      * @return pole s parmi
      */

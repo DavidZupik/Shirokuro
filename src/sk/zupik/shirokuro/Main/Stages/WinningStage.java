@@ -22,6 +22,10 @@ public class WinningStage extends Stage {
     BorderPane root = new BorderPane();
     BorderPane bottomPane = new BorderPane();
 
+    /**
+     * konstruktor levelu
+     * @param lvl urcuje ci hrany level bol z predrobenych alebo loadnuty
+     */
     public WinningStage(Integer lvl){
 
         if(lvl != null && lvl != 25){
@@ -47,19 +51,19 @@ public class WinningStage extends Stage {
         getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-save");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e->{
-            this.close();
             Shirokuro.getLvlSelection().show();
+            this.close();
         });
 
         next.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-save");
         next.setAlignment(Pos.CENTER);
         next.setOnAction(e->{
-            this.close();
             GameStage.timeCounter.stop();
             int level = GameStage.getLvl() + 1;
             Shirokuro.setGameStage(new GameStage(level));
             Shirokuro.getGameStage().setUpStage();
             Shirokuro.getGameStage().show();
+            this.close();
         });
 
         bottomPane.setLeft(getBack);

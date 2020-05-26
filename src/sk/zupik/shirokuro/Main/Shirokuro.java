@@ -1,7 +1,7 @@
 package sk.zupik.shirokuro.Main;
 
 import sk.zupik.shirokuro.Main.Stages.*;
-import sk.zupik.shirokuro.Sound.Sounds;
+import sk.zupik.shirokuro.Main.Sound.Sounds;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -53,39 +53,78 @@ public class Shirokuro extends Application {
     }
 
     /**
-     * @return vrati help stage
+     * @return vrati stage kde je napoveda ako hrat hru
      */
     public static Help getHelp() {
         return help;
     }
+
+    /**
+     * @return vrati stage kde sa vyberaju leveli
+     */
     public static LevelSelection getLvlSelection() {
         return lvlSelection;
     }
+
+    /**
+     * @return vrati stage kde bol level prejdeny
+     */
     public static WinningStage getWinningStage() {
         return winningStage;
     }
+
+    /**
+     * @return vrati editovaci stage
+     */
     public static EditStage getEditStage() {
         return editStage;
     }
 
+    /**
+     * nastavenie stagu hry
+     */
     public static void setGameStage(GameStage newGameStage) {
         gameStage = newGameStage;
     }
+
+    /**
+     * nastavenie stagu hlavneho menu
+     */
     public static void setMainMenu(MainMenu newMainMenu) {
         mainMenu = newMainMenu;
     }
+
+    /**
+     * nastavenie zvuku
+     */
     public static void setSounds(Sounds newSounds) {
         sounds = newSounds;
     }
+
+    /**
+     * nastavenie stagu pomoci
+     */
     public static void setHelp(Help newHelp) {
         help = newHelp;
     }
+
+    /**
+     * nastavenie stagu vyberu levelu
+     */
     public static void setLvlSelection(LevelSelection newLvlSelection) {
         lvlSelection = newLvlSelection;
     }
+
+    /**
+     * nastavenie stagu kde level bol prejdeny
+     */
     public static void setWinningStage(WinningStage newWinningStage) {
         winningStage = newWinningStage;
     }
+
+    /**
+     * nastavenie editovacieho stagu
+     */
     public static void setEditStage(EditStage newEditStage) {
         editStage = newEditStage;
     }

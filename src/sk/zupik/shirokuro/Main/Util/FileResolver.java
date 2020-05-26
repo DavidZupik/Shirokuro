@@ -1,4 +1,4 @@
-package sk.zupik.shirokuro.Util;
+package sk.zupik.shirokuro.Main.Util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,11 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public final class FileResolver {
     private FileResolver(){}
 
+    //todo opytat sa jozka co to vlastne robi
     public static URI getUri(String path){
         try {
             try {
@@ -24,6 +24,7 @@ public final class FileResolver {
         return null;
     }
 
+    //todo
     public static InputStream getInputStream(String path) throws FileNotFoundException {
         InputStream is = FileResolver.class.getClassLoader().getResourceAsStream("../" + path);
 

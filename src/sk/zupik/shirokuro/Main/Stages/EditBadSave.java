@@ -17,11 +17,14 @@ public class EditBadSave extends Stage {
     Text text;
     Button ok = new Button("Ok");
 
+    /**
+     * konstruktor triedy
+     * @param parentStage stage z ktoreho bola tato trieda zavolana
+     */
     public EditBadSave(Stage parentStage){
         root = new BorderPane();
         bottomPane = new BorderPane();
 
-        //todo make better style for text
         text = new Text("Please, make solvable level.\n");
         text.getStyleClass().add("lbTimer");
 
