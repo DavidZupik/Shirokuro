@@ -34,16 +34,16 @@ public class WinningStage extends Stage {
                     "Your time: " + Shirokuro.getGameStage().state.time + "s\n" +
                     "Click next for next level.\n\n" +
 
-                    "Prešiel si level.\n" +
-                    "Tvoj čas bol: " + Shirokuro.getGameStage().state.time + "s\n" +
-                    "Klikni na next pre ďalší level.");
+                    "Presiel si level.\n" +
+                    "Tvoj cas bol: " + Shirokuro.getGameStage().state.time + "s\n" +
+                    "Klikni na next pre dalsi level.");
 
         }
         else{
             text.setText("You pass level.\n" +
                     "Your time: " + Shirokuro.getGameStage().state.time + "s\n\n" +
                     "Vyhral si.\n" +
-                    "Tvoj čas bol: " + Shirokuro.getGameStage().state.time + "s");
+                    "Tvoj cas bol: " + Shirokuro.getGameStage().state.time + "s");
         }
 
         text.getStyleClass().add("win-text");

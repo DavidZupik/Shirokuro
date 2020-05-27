@@ -40,11 +40,11 @@ public class Help extends Stage {
                     "Lines do not pass through other circles or lines\n" +
                     "Not necessarily each cell is visited by a line\n" +
                     "\nSK\n" +
-                    "Prepojte každý čierny kruh s bielym kruhom\n" +
-                    "Používajte iba priamu vodorovnú alebo zvislú čiaru\n" +
-                    "V každom kruhu končí presne jedna čiara.\n" +
-                    "Čiary neprechádzajú inými kruhmi alebo čiarami\n" +
-                    "Nie každá bunka musí byť navštívená linkou");
+                    "Prepojte kazdy cierny kruh s bielym kruhom\n" +
+                    "Pouzivajte iba priamu vodorovnu alebo zvislu ciaru\n" +
+                    "V kazdom kruhu konci presne jedna ciara.\n" +
+                    "Ciary neprechadzaju inymi kruhmi alebo ciarami\n" +
+                    "Nie kazda bunka musi byt navstivena linkou");
 
         text.getStyleClass().add("helpText");
 
