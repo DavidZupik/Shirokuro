@@ -18,16 +18,16 @@ import java.util.ArrayList;
 
 public class SaveGame extends Stage {
 
-    Button save = new Button("SAVE");
-    Button getBack = new Button("BACK");
-    BorderPane root = new BorderPane();
-    public static Text screenText = new Text();
-    HBox topPane = new HBox();
+
     TextField textField = new TextField();
-    BorderPane bottomPane = new BorderPane();
     OverwriteStage overwrite;
     boolean fileExist = true;
     boolean saveEditGame;
+
+    /**
+     * test ktory sa zobrazi v okne
+     */
+    public static Text screenText = new Text();
 
     /**
      * konstruktor triedy
@@ -36,6 +36,11 @@ public class SaveGame extends Stage {
      */
     public SaveGame(Stage parentStage, boolean editGame){
 
+        Button save = new Button("SAVE");
+        Button getBack = new Button("BACK");
+        BorderPane root = new BorderPane();
+        HBox topPane = new HBox();
+        BorderPane bottomPane = new BorderPane();
         saveEditGame = editGame;
 
         textField.setAlignment(Pos.CENTER);

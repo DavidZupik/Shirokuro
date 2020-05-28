@@ -13,20 +13,18 @@ import java.util.Random;
 
 public class WinningStage extends Stage {
 
-    Random random = new Random();
-
-    Button next = new Button("Next");
-    Button getBack = new Button("Back");
-    Text text = new Text();
-
-    BorderPane root = new BorderPane();
-    BorderPane bottomPane = new BorderPane();
-
     /**
      * konstruktor levelu
      * @param lvl urcuje ci hrany level bol z predrobenych alebo loadnuty
      */
     public WinningStage(Integer lvl){
+
+        Random random = new Random();
+        final Button next = new Button("Next");
+        final Button getBack = new Button("Back");
+        final Text text = new Text();
+        BorderPane root = new BorderPane();
+        BorderPane bottomPane = new BorderPane();
 
         if(lvl != null && lvl != 25){
             bottomPane.setRight(next);
@@ -34,16 +32,16 @@ public class WinningStage extends Stage {
                     "Your time: " + Shirokuro.getGameStage().state.time + "s\n" +
                     "Click next for next level.\n\n" +
 
-                    "Prešiel si level.\n" +
-                    "Tvoj čas bol: " + Shirokuro.getGameStage().state.time + "s\n" +
-                    "Klikni na next pre ďalší level.");
+                    "Presiel si level.\n" +
+                    "Tvoj cas bol: " + Shirokuro.getGameStage().state.time + "s\n" +
+                    "Klikni na next pre dalsi level.");
 
         }
         else{
             text.setText("You pass level.\n" +
                     "Your time: " + Shirokuro.getGameStage().state.time + "s\n\n" +
                     "Vyhral si.\n" +
-                    "Tvoj čas bol: " + Shirokuro.getGameStage().state.time + "s");
+                    "Tvoj cas bol: " + Shirokuro.getGameStage().state.time + "s");
         }
 
         text.getStyleClass().add("win-text");

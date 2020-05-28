@@ -15,16 +15,8 @@ import javafx.stage.Stage;
 public class LevelSelection extends Stage {
 
     BorderPane root;
-
-    //center-pane
     GridPane topPane;
-
-    //bottom-pane
     BorderPane bottomPane;
-    Button getBack = new Button("Back");
-    Button exit = new Button("Exit");
-    Button load = new Button("Load");
-
     Stage loadGame;
 
     /**
@@ -44,14 +36,17 @@ public class LevelSelection extends Stage {
         makeAndFillGridPane();
 
         //bottom buttons
+        Button getBack = new Button("Back");
         getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-levelSelection");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e-> getBackButtonAction());
 
+        Button load = new Button("Load");
         load.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-levelSelection");
         load.setAlignment(Pos.CENTER);
         load.setOnAction(e-> loadBackButtonAction());
 
+        Button exit = new Button("Exit");
         exit.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-levelSelection");
         exit.setAlignment(Pos.CENTER);
         exit.setOnAction(e -> Platform.exit());

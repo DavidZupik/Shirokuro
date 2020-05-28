@@ -55,7 +55,7 @@ public class EditState implements Serializable {
         numberOfCircles = 0;
         for (CellState[] cell : cells) {
             for (CellState cellState : cell) {
-                if(cellState.state != States.FREE){
+                if(cellState.getState() != States.FREE){
                     numberOfCircles++;
                 }
             }

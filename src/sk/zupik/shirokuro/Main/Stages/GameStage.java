@@ -26,27 +26,33 @@ public class GameStage extends Stage {
 
     BorderPane root;
     SaveGame saveGame;
-    public GameState state;
-    private static Integer lvl = null;
     String loadLVL;
-    Random random = new Random();
-
-
-    //top pane
     BorderPane topPane;
-    public static Label lbTimer = new Label("Time: " + 0 + " sec");
-    public static Timeline timeCounter;
-
-    //center-pane
-    public GamePane gamePane;
+    Random random = new Random();
     Pane p1 = new Pane();
     Pane p2 = new Pane();
-
-    //bottom-pane
     BorderPane bottomPane;
     Button getBack = new Button("Back");
     Button exit = new Button("Exit");
     Button save = new Button("Save");
+    private static Integer lvl = null;
+
+    /**
+     * stav hry
+     */
+    public GameState state;
+    /**
+     * ukazovac casu
+     */
+    public static Label lbTimer = new Label("Time: " + 0 + " sec");
+    /**
+     * casovac
+     */
+    public static Timeline timeCounter;
+    /**
+     * plocha na ktorej je vykreslena hra
+     */
+    public GamePane gamePane;
 
     /**
      * konstruktor triedy

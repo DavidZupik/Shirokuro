@@ -4,7 +4,6 @@ import sk.zupik.shirokuro.Main.Stages.*;
 import sk.zupik.shirokuro.Main.Sound.Sounds;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Shirokuro extends Application {
@@ -16,12 +15,14 @@ public class Shirokuro extends Application {
     private static LevelSelection lvlSelection;
     private static WinningStage winningStage;
     private static EditStage editStage;
+
+    /**
+     *  cesta k projektu
+     */
     public static String directory;
-    public static Scene scene;
-    public static Stage stage;
 
     @Override
-    public void start(Stage stage){
+    public void start(Stage stage) {
         directory = System.getProperty("user.dir");
         setMainMenu(new MainMenu());
         mainMenu.show();

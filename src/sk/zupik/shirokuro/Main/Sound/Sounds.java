@@ -5,10 +5,9 @@ import javafx.scene.media.MediaPlayer;
 import sk.zupik.shirokuro.Main.Shirokuro;
 import sk.zupik.shirokuro.Main.Util.FileResolver;
 
-public class Sounds {
+public final class Sounds {
 
-    Media pick = new Media(FileResolver.getUri("Main/Sound/Music1.mp3").toString());
-    MediaPlayer player = new MediaPlayer(pick);
+    MediaPlayer player = new MediaPlayer(new Media(FileResolver.getUri("Main/Sound/Music1.mp3").toString()));
 
     /**
      * spustenie hudby

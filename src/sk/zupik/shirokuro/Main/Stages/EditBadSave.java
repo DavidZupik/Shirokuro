@@ -12,16 +12,16 @@ import javafx.stage.Stage;
 
 public class EditBadSave extends Stage {
 
-    BorderPane root;
-    BorderPane bottomPane;
-    Text text;
-    Button ok = new Button("Ok");
-
     /**
      * konstruktor triedy
      * @param parentStage stage z ktoreho bola tato trieda zavolana
      */
     public EditBadSave(Stage parentStage){
+        BorderPane root;
+        BorderPane bottomPane;
+        Text text;
+        Button ok = new Button("Ok");
+
         root = new BorderPane();
         bottomPane = new BorderPane();
 

@@ -14,33 +14,35 @@ import javafx.stage.Stage;
 
 public class MainMenu extends Stage {
 
-    //center pane
-    VBox mRoot;
-    Text titleText = new Text();
-    Button play = new Button("Play");
-    Button edit = new Button("Edit");
-    Button help = new Button("Help");
-    Button exit = new Button("Exit");
+    private ImageView audioIMG;
+    private ImageView noAudioIMG;
+    private ImageView plusIMG;
+    private ImageView minusIMG;
+    private Button audio;
+    private Button plus;
+    private Button minus;
 
-    //top pane - music settings
-    HBox topPane = new HBox();
-    Button audio;
-    Button plus;
-    Button minus;
+    /**
+     * stav hudby<br>
+     *     true - ak hudba hra<br>
+     *     false - ak hudba nehra
+     */
     public boolean sound = true;
-    ImageView audioIMG;
-    ImageView noAudioIMG;
-    ImageView plusIMG;
-    ImageView minusIMG;
-
-    //botompane autor name
-    HBox bottomPane = new HBox();
-    Text name = new Text("©Dávid Župík");
 
     /**
      * konstructor triedy
      */
     public MainMenu(){
+        VBox mRoot;
+        Text titleText = new Text();
+        Button play = new Button("Play");
+        Button edit = new Button("Edit");
+        Button help = new Button("Help");
+        Button exit = new Button("Exit");
+        HBox topPane = new HBox();
+        HBox bottomPane = new HBox();
+        Text name = new Text("©Dávid Župík");
+
         loadImages();
         //top pane
         //set buttons
