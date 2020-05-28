@@ -29,7 +29,7 @@ public class EditCellPane extends Pane {
         height = (420. / Shirokuro.getEditStage().editState.size);
         width = (420. / Shirokuro.getEditStage().editState.size);
         this.setOnMouseClicked(e->{
-            Shirokuro.getEditStage().editState.cells[row][col].state = EditStage.state;
+            Shirokuro.getEditStage().editState.cells[row][col].setState(EditStage.state);
             Shirokuro.getEditStage().solvable = false;
             makeOccupyFree();
             Shirokuro.getEditStage().setCenterCircleFill();
@@ -57,10 +57,10 @@ public class EditCellPane extends Pane {
         c.setRadius(height / 2 - 1);
         rect.getStyleClass().add("edit-cell");
 
-        if(cell.state == States.WHITE){
+        if(cell.getState() == States.WHITE){
             c.setStyle("-fx-fill: white");
         }
-        else if(cell.state == States.BLACK){
+        else if(cell.getState() == States.BLACK){
             c.setStyle("-fx-fill: black");
         }
         else{
@@ -78,11 +78,11 @@ public class EditCellPane extends Pane {
     public static void makeOccupyFree(){
         for (CellState[] cell : Shirokuro.getEditStage().editState.cells) {
             for (CellState cellState : cell) {
-                if(cellState.state == States.OCCUPY_HORIZ || cellState.state == States.OCCUPY_VERTI){
-                    cellState.state = States.FREE;
+                if(cellState.getState() == States.OCCUPY_HORIZ || cellState.getState() == States.OCCUPY_VERTI){
+                    cellState.setState(States.FREE);
                 }
-                if(cellState.state == States.BLACK || cellState.state == States.WHITE){
-                    cellState.direction = Direction.NONE;
+                if(cellState.getState() == States.BLACK || cellState.getState() == States.WHITE){
+                    cellState.setDirection(Direction.NONE);
                 }
             }
         }

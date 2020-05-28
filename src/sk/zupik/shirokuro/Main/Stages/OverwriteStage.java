@@ -11,15 +11,6 @@ import javafx.stage.Stage;
 
 public class OverwriteStage extends Stage {
 
-
-    Button yes = new Button("Yes");
-    Button no = new Button("No");
-
-    Text text = new Text("Do you want overwrite existing file?");
-
-    BorderPane root = new BorderPane();
-    BorderPane bottomPane = new BorderPane();
-
     /**
      * konstruktor triedy
      * @param parentStage stage z ktoreho bola tato trieda zavolana
@@ -27,6 +18,11 @@ public class OverwriteStage extends Stage {
      * @param editGame je true ak sa jedna o prepisovanie naeditovanej hry
      */
     public OverwriteStage(Stage parentStage, String fileName, boolean editGame){
+        Button yes = new Button("Yes");
+        Button no = new Button("No");
+        Text text = new Text("Do you want overwrite existing file?");
+        BorderPane root = new BorderPane();
+        BorderPane bottomPane = new BorderPane();
 
         no.getStyleClass().add("overButtonStyle");
         no.setOnAction(e-> noButtonAction());

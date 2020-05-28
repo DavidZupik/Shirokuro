@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 public class CellState implements Serializable {
 
-    public States state;
-    public Direction direction;
+    States state;
+    Direction direction;
     int row;
     int col;
     public boolean clicked;
@@ -40,5 +40,21 @@ public class CellState implements Serializable {
      */
     public int getCol() {
         return col;
+    }
+
+    public States getState() {
+        return state;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction){
+        this.direction = direction;
+    }
+
+    public void setState(States state) {
+        this.state = state;
     }
 }

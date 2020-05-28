@@ -66,22 +66,23 @@ public class CellPane extends Pane {
         }
 
         //directions of circles
-        if(cell.direction == Direction.UP){
+        Direction cellDirection = cell.getDirection();
+        if(cellDirection == Direction.UP){
             joins.setMaxSize(width/4, height/2);
             joins.getStyleClass().add("up-direction");
             sp.setAlignment(Pos.TOP_CENTER);
         }
-        else if(cell.direction == Direction.DOWN){
+        else if(cellDirection == Direction.DOWN){
             joins.setMaxSize(width/4, height/2);
             joins.getStyleClass().add("down-direction");
             sp.setAlignment(Pos.BOTTOM_CENTER);
         }
-        else if(cell.direction == Direction.LEFT) {
+        else if(cellDirection == Direction.LEFT) {
             joins.setMaxSize(width/2, height/4);
             joins.getStyleClass().add("left-direction");
             sp.setAlignment(Pos.CENTER_LEFT);
         }
-        else if(cell.direction == Direction.RIGHT) {
+        else if(cellDirection == Direction.RIGHT) {
             joins.setMaxSize(width/2, height/4);
             joins.getStyleClass().add("right-direction");
             sp.setAlignment(Pos.CENTER_RIGHT);
@@ -91,19 +92,20 @@ public class CellPane extends Pane {
         }
 
         //states of cell
-        if(cell.state == States.WHITE){
+        States cellState = cell.getState();
+        if(cellState == States.WHITE){
             c.setStyle("-fx-fill: white");
         }
-        else if(cell.state == States.BLACK){
+        else if(cellState == States.BLACK){
             c.setStyle("-fx-fill: black");
         }
         else{
             c.setStyle("-fx-fill: transparent");
-            if(cell.state == States.OCCUPY_HORIZ){
+            if(cellState == States.OCCUPY_HORIZ){
                 joins.setMaxSize(width, height/4);
                 joins.getStyleClass().add("horiz-verti-state");
             }
-            else if(cell.state == States.OCCUPY_VERTI){
+            else if(cellState == States.OCCUPY_VERTI){
                 joins.setMaxSize(width/4, height);
                 joins.getStyleClass().add("horiz-verti-state");
             }
@@ -121,14 +123,16 @@ public class CellPane extends Pane {
         }
     }
     private void firstClick(CellState cell){
-        if(cell.state == States.OCCUPY_HORIZ){
+        States cellState = cell.getState();
+        Direction cellDirection = cell.getDirection();
+        if(cellState == States.OCCUPY_HORIZ){
             GameState.releaseCellH(cell, 0);
         }
-        else if(cell.state == States.OCCUPY_VERTI){
+        else if(cellState == States.OCCUPY_VERTI){
             GameState.releaseCellV(cell, 0);
         }
-        else if(cell.state == States.WHITE || cell.state == States.BLACK){
-            if(cell.direction != Direction.NONE){
+        else if(cellState == States.WHITE || cellState == States.BLACK){
+            if(cellDirection != Direction.NONE){
                 GameState.releaseCellBW(cell);
             }
             else{
@@ -139,8 +143,9 @@ public class CellPane extends Pane {
         Shirokuro.getGameStage().gamePane.paint();
     }
     private void secondClick(CellState cell){
-        if(cell.state == States.BLACK || cell.state == States.WHITE) {
-            if (cell.state != GameState.clickedCell.state) {
+        States cellState = cell.getState();
+        if(cellState == States.BLACK || cellState == States.WHITE) {
+            if (cellState  != GameState.clickedCell.getState()) {
                 if (GameState.checkRowCol(cell)) {
                     if (GameState.checkFreeCell(cell)) {
                         GameState.joinCells(cell);

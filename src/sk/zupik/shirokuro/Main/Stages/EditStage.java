@@ -26,18 +26,13 @@ import java.util.List;
 
 public class EditStage extends Stage {
 
-    public EditState editState;
-    public static States state = States.FREE;
-    public EditPane editPane;
     SaveGame saveGame;
     EditBadSave badSave;
-
-    BorderPane root;
-    BorderPane topPane;
     HBox leftButtons;
     HBox rightButtons;
+    BorderPane root;
+    BorderPane topPane;
     BorderPane bottomPane;
-
     Button whiteCellButton;
     Button blackCellButton;
     Button removeCellButton;
@@ -47,9 +42,36 @@ public class EditStage extends Stage {
     Button save = new Button("Save");
     Button check = new Button("Check");
 
+    /**
+     * stav naeditovanej hry
+     */
+    public EditState editState;
+    /**
+     * stav na ktory sa zmeni kliknuta bunka
+     */
+    public static States state = States.FREE;
+    /**
+     * plocha na ktorej je vykreslena naeditovana hra
+     */
+    public EditPane editPane;
+
+    /**
+     * pocet buniek N*N
+     */
     public int size = 10;
+    /**
+     * stav ci je naeditovana hra riesitelna
+     */
     public boolean solvable = false;
+    /**
+     * kruh ktory ukazuje stav solvable<br>
+     * cervena pre neriesitelnu hru<br>
+     * zelena pre riesitelnu hru
+     */
     public Circle solvableCircle;
+    /**
+     * pole s parmi
+     */
     public HashMap<CellState, CellState> pairs;
 
 
@@ -201,10 +223,10 @@ public class EditStage extends Stage {
         int w = 0;
         for (CellState[] cell : editState.cells) {
             for (CellState cellState : cell) {
-                if(cellState.state == States.BLACK){
+                if(cellState.getState() == States.BLACK){
                     b++;
                 }
-                else if(cellState.state == States.WHITE){
+                else if(cellState.getState() == States.WHITE){
                     w++;
                 }
             }
@@ -314,7 +336,7 @@ public class EditStage extends Stage {
     private CellState findNextWhite(int row, int col){
         for (int j = col; j < editState.cells.length; j++) {
             if(!pairs.containsKey(editState.cells[row][j])) {
-                if (editState.cells[row][j].state == States.WHITE) {
+                if (editState.cells[row][j].getState() == States.WHITE) {
                     return editState.cells[row][j];
                 }
             }
@@ -322,7 +344,7 @@ public class EditStage extends Stage {
 
         for (int i = row+1; i < editState.cells.length; i++) {
             for (int j = 0; j < editState.cells.length; j++) {
-                if(editState.cells[i][j].state == States.WHITE){
+                if(editState.cells[i][j].getState() == States.WHITE){
                     return editState.cells[i][j];
                 }
             }
@@ -334,13 +356,13 @@ public class EditStage extends Stage {
         //going top
         if (cell != null && cell.getRow()-1 >= 0){
             for (int row = cell.getRow()-1; row >= 0; row--) {
-                if (editState.cells[row][cell.getCol()].state == States.BLACK
-                        && editState.cells[row][cell.getCol()].direction == Direction.NONE) {
+                if (editState.cells[row][cell.getCol()].getState() == States.BLACK
+                        && editState.cells[row][cell.getCol()].getDirection() == Direction.NONE) {
                     CellState blackCell = editState.cells[row][cell.getCol()];
                     addPair(cell, blackCell);
                     solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
                 }
-                if(editState.cells[row][cell.getCol()].state == States.FREE) {
+                if(editState.cells[row][cell.getCol()].getState() == States.FREE) {
                     continue;
                 }
                 break;
@@ -350,11 +372,11 @@ public class EditStage extends Stage {
         //going down
         if (cell != null && cell.getRow()+1 < editState.size){
             for (int row = cell.getRow()+1; row < editState.size; row++) {
-                if(editState.cells[row][cell.getCol()].state == States.FREE) {
+                if(editState.cells[row][cell.getCol()].getState() == States.FREE) {
                     continue;
                 }
-                if (editState.cells[row][cell.getCol()].state == States.BLACK
-                        && editState.cells[row][cell.getCol()].direction == Direction.NONE) {
+                if (editState.cells[row][cell.getCol()].getState() == States.BLACK
+                        && editState.cells[row][cell.getCol()].getDirection() == Direction.NONE) {
                     CellState blackCell = editState.cells[row][cell.getCol()];
                     addPair(cell, blackCell);
                     solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
@@ -366,11 +388,11 @@ public class EditStage extends Stage {
         //going left
         if (cell != null && cell.getCol()-1 >= 0){
             for (int col = cell.getCol() - 1; col >= 0 ; col--) {
-                if (editState.cells[cell.getRow()][col].state == States.FREE) {
+                if (editState.cells[cell.getRow()][col].getState() == States.FREE) {
                     continue;
                 }
-                if (editState.cells[cell.getRow()][col].state == States.BLACK
-                        && editState.cells[cell.getRow()][col].direction == Direction.NONE) {
+                if (editState.cells[cell.getRow()][col].getState() == States.BLACK
+                        && editState.cells[cell.getRow()][col].getDirection() == Direction.NONE) {
                     CellState blackCell = editState.cells[cell.getRow()][col];
                     addPair(cell, blackCell);
                     solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
@@ -382,11 +404,11 @@ public class EditStage extends Stage {
         //going right
         if (cell != null && cell.getCol()+1 < editState.size){
             for (int col = cell.getCol() + 1; col < editState.size ; col++) {
-                if (editState.cells[cell.getRow()][col].state == States.FREE) {
+                if (editState.cells[cell.getRow()][col].getState() == States.FREE) {
                     continue;
                 }
-                if (editState.cells[cell.getRow()][col].state == States.BLACK
-                        && editState.cells[cell.getRow()][col].direction == Direction.NONE) {
+                if (editState.cells[cell.getRow()][col].getState() == States.BLACK
+                        && editState.cells[cell.getRow()][col].getDirection() == Direction.NONE) {
                     CellState blackCell = editState.cells[cell.getRow()][col];
                     addPair(cell, blackCell);
                     solvableBacktrack(findNextWhite(cell.getRow(), cell.getCol()));
@@ -409,33 +431,33 @@ public class EditStage extends Stage {
         if(cell1.getCol() == cell2.getCol()){
             if(cell1.getRow() < cell2.getRow()){
                 for (int i = cell1.getRow()+1; i < cell2.getRow(); i++) {
-                    editState.cells[i][cell1.getCol()].state = States.OCCUPY_VERTI;
+                    editState.cells[i][cell1.getCol()].setState(States.OCCUPY_VERTI);
                 }
-                cell1.direction = Direction.DOWN;
-                cell2.direction = Direction.UP;
+                cell1.setDirection(Direction.DOWN);
+                cell2.setDirection(Direction.UP);
             }
             else{
                 for (int i = cell2.getRow()+1; i < cell1.getRow(); i++) {
-                    editState.cells[i][cell1.getCol()].state = States.OCCUPY_VERTI;
+                    editState.cells[i][cell1.getCol()].setState(States.OCCUPY_VERTI);
                 }
-                cell1.direction = Direction.UP;
-                cell2.direction = Direction.DOWN;
+                cell1.setDirection(Direction.UP);
+                cell2.setDirection(Direction.DOWN);
             }
         }
         else{
             if(cell1.getCol() < cell2.getCol()){
                 for (int i = cell1.getCol()+1; i < cell2.getCol(); i++) {
-                    editState.cells[cell1.getRow()][i].state = States.OCCUPY_HORIZ;
+                    editState.cells[cell1.getRow()][i].setState(States.OCCUPY_HORIZ);
                 }
-                cell1.direction = Direction.RIGHT;
-                cell2.direction = Direction.LEFT;
+                cell1.setDirection(Direction.RIGHT);
+                cell2.setDirection(Direction.LEFT);
             }
             else{
                 for (int i = cell2.getCol()+1; i < cell1.getCol(); i++) {
-                    editState.cells[cell1.getRow()][i].state = States.OCCUPY_HORIZ;
+                    editState.cells[cell1.getRow()][i].setState(States.OCCUPY_HORIZ);
                 }
-                cell1.direction = Direction.LEFT;
-                cell2.direction = Direction.RIGHT;
+                cell1.setDirection(Direction.LEFT);
+                cell2.setDirection(Direction.RIGHT);
             }
         }
     }
@@ -453,28 +475,28 @@ public class EditStage extends Stage {
         if(cell1.getCol() == cell2.getCol()){
             if(cell1.getRow() < cell2.getRow()){
                 for (int i = cell1.getRow()+1; i < cell2.getRow(); i++) {
-                    editState.cells[i][cell1.getCol()].state = States.FREE;
+                    editState.cells[i][cell1.getCol()].setState(States.FREE);
                 }
             }
             else{
                 for (int i = cell2.getRow()+1; i < cell1.getRow(); i++) {
-                    editState.cells[i][cell1.getCol()].state = States.FREE;
+                    editState.cells[i][cell1.getCol()].setState(States.FREE);
                 }
             }
         }
         else{
             if(cell1.getCol() < cell2.getCol()){
                 for (int i = cell1.getCol()+1; i < cell2.getCol(); i++) {
-                    editState.cells[cell1.getRow()][i].state = States.FREE;
+                    editState.cells[cell1.getRow()][i].setState(States.FREE);
                 }
             }
             else{
                 for (int i = cell2.getCol()+1; i < cell1.getCol(); i++) {
-                    editState.cells[cell1.getRow()][i].state = States.FREE;
+                    editState.cells[cell1.getRow()][i].setState(States.FREE);
                 }
             }
         }
-        cell1.direction = Direction.NONE;
-        cell2.direction = Direction.NONE;
+        cell1.setDirection(Direction.NONE);
+        cell2.setDirection(Direction.NONE);
     }
 }

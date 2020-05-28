@@ -20,18 +20,25 @@ import java.util.Objects;
 
 public class LoadGame extends Stage {
 
-    Button back = new Button("Back");
+    /**
+     * cesta k ulozenym suborom
+     */
     final File folder = new File(Shirokuro.directory + "./Load");
+    /**
+     * nazvy vsetkych ulozenych hier ktore su v subore Load
+     */
     static ArrayList<String> result;
-    VBox textBox = new VBox();
-    VBox root;
-    BorderPane bottomPane;
 
     /**
      * konstruktor triedy
      * @param parentStage stage z ktoreho bola tato trieda zavolana
      */
     LoadGame(Stage parentStage){
+        Button back = new Button("Back");
+        VBox textBox = new VBox();
+        VBox root;
+        BorderPane bottomPane;
+
 
         result = new ArrayList<>();
         search(folder);
@@ -87,7 +94,7 @@ public class LoadGame extends Stage {
     }
 
     /**
-     * metoda hlada vsetky zlozky z koncovkou lvl a edit v subore
+     * metoda hlada vsetky zlozky z koncovkou lvl a edit v subore<br>
      * a vklada ich do pola
      * @param folder subor v ktorom hlada
      */

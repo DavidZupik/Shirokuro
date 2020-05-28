@@ -13,20 +13,18 @@ import java.util.Random;
 
 public class WinningStage extends Stage {
 
-    Random random = new Random();
-
-    Button next = new Button("Next");
-    Button getBack = new Button("Back");
-    Text text = new Text();
-
-    BorderPane root = new BorderPane();
-    BorderPane bottomPane = new BorderPane();
-
     /**
      * konstruktor levelu
      * @param lvl urcuje ci hrany level bol z predrobenych alebo loadnuty
      */
     public WinningStage(Integer lvl){
+
+        Random random = new Random();
+        final Button next = new Button("Next");
+        final Button getBack = new Button("Back");
+        final Text text = new Text();
+        BorderPane root = new BorderPane();
+        BorderPane bottomPane = new BorderPane();
 
         if(lvl != null && lvl != 25){
             bottomPane.setRight(next);

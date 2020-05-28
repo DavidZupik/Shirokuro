@@ -14,23 +14,18 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Help extends Stage {
-    //center pane
-    VBox root;
-    //text pane
-    BorderPane textPane = new BorderPane();
-    StackPane sPane;
-    Text text = new Text();
-    //bottompane
-    BorderPane bottomPane = new BorderPane();
-    Button getBack = new Button("Back");
-    Button exit = new Button("Exit");
-    Button play = new Button("Play");
-
 
     /**
      * konstruktor triedy
      */
     public Help(){
+
+        VBox root;
+        BorderPane textPane = new BorderPane();
+        StackPane sPane;
+        Text text = new Text();
+        BorderPane bottomPane = new BorderPane();
+
         //textpane text
         text.setText("\nRules:\n" +
                     "\nEN\n"+
@@ -58,14 +53,17 @@ public class Help extends Stage {
         textPane.setMinHeight(450);
 
         //bottompane buttons
+        Button getBack = new Button("Back");
         getBack.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-help");
         getBack.setAlignment(Pos.CENTER);
         getBack.setOnAction(e -> getBackButtonAction() );
 
+        Button play = new Button("Play");
         play.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-help");
         play.setAlignment(Pos.CENTER);
         play.setOnAction(e -> playButtonAction() );
 
+        Button exit = new Button("Exit");
         exit.getStyleClass().addAll("bottomButtonStyle", "bottomButtonStyle-help");
         exit.setAlignment(Pos.CENTER);
         exit.setOnAction(e -> Platform.exit());
