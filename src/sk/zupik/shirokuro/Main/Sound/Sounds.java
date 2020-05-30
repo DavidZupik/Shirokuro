@@ -5,9 +5,11 @@ import javafx.scene.media.MediaPlayer;
 import sk.zupik.shirokuro.Main.Shirokuro;
 import sk.zupik.shirokuro.Main.Util.FileResolver;
 
+import java.util.Objects;
+
 public final class Sounds {
 
-    MediaPlayer player = new MediaPlayer(new Media(FileResolver.getUri("Main/Sound/Music1.mp3").toString()));
+    MediaPlayer player = new MediaPlayer(new Media(Objects.requireNonNull(FileResolver.getUri("Main/Sound/Music1.mp3")).toString()));
 
     /**
      * spustenie hudby
@@ -26,7 +28,9 @@ public final class Sounds {
     }
 
     /**
-     * zvysenie hlasitosti hudby
+     * zvysenie hlasitosti hudby<br>
+     * ak hudba bola pauznuta alebo hlasitost bola 0<br>
+     * tak sa opat spusti
      */
     public void volumeUP(){
         if (player.getVolume() < 0.1) {
@@ -35,11 +39,14 @@ public final class Sounds {
         if(player.getVolume() > 0){
             Shirokuro.getMainMenu().sound = true;
             Shirokuro.getMainMenu().getAudio().setGraphic(Shirokuro.getMainMenu().getAudioIMG());
+            player.play();
         }
     }
 
     /**
-     * znizenie hlasitosti hudby
+     * znizenie hlasitosti hudby<br>
+     * ak hlasitost hudby je na urovni kedy ho nepocut<br>
+     * hudba sa pozastavi
      */
     public void volumeDOWN(){
         if (player.getVolume() > 0) {
@@ -48,6 +55,7 @@ public final class Sounds {
         if(player.getVolume() < 0.01){
             Shirokuro.getMainMenu().sound = false;
             Shirokuro.getMainMenu().getAudio().setGraphic(Shirokuro.getMainMenu().getNoAudioIMG());
+            player.pause();
         }
     }
 }

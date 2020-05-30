@@ -1,3 +1,6 @@
+/**
+ * v tomto balicku sa nachadzaju vsetky triedy ktore treba na spustenie aplikacie
+ */
 package sk.zupik.shirokuro.Main;
 
 import sk.zupik.shirokuro.Main.Stages.*;
@@ -5,6 +8,10 @@ import sk.zupik.shirokuro.Main.Sound.Sounds;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+/**
+ * @author David Zupik
+ */
 
 public class Shirokuro extends Application {
 

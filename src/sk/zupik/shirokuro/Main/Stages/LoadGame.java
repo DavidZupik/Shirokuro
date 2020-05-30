@@ -39,20 +39,19 @@ public class LoadGame extends Stage {
         VBox root;
         BorderPane bottomPane;
 
-
         result = new ArrayList<>();
         search(folder);
         ScrollPane scrollPane = new ScrollPane();
 
         for (String s : result) {
-            Text lfile = new Text(s);
-            FlowPane fp = new FlowPane(lfile);
+            Text lFile = new Text(s);
+            FlowPane fp = new FlowPane(lFile);
             fp.getStyleClass().add("fp");
-            lfile.getStyleClass().add("lfile");
-            lfile.setOnMouseClicked(e -> {
+            lFile.getStyleClass().add("lfile");
+            lFile.setOnMouseClicked(e -> {
                 parentStage.close();
                 try {
-                    Shirokuro.setGameStage(new GameStage(lfile.getText()));
+                    Shirokuro.setGameStage(new GameStage(lFile.getText()));
                     Shirokuro.getGameStage().setUpStage();
                     Shirokuro.getGameStage().show();
                 } catch (Exception err) {
@@ -99,22 +98,21 @@ public class LoadGame extends Stage {
      * @param folder subor v ktorom hlada
      */
     public static void search(final File folder) {
-        folder.mkdirs();
-        for (final File f : Objects.requireNonNull(folder.listFiles())) {
-            if (f.isDirectory()) {
-                search(f);
-            }
-            if (f.isFile()) {
-                if (f.getName().matches(".*\\.lvl")) {
-                    StringBuilder s = new StringBuilder(f.getName());
-                    result.add(s.substring(0, f.getName().length()-4));
+        if(folder.exists()) {
+            for (final File f : Objects.requireNonNull(folder.listFiles())) {
+                if (f.isDirectory()) {
+                    search(f);
                 }
-                else if(f.getName().matches(".*\\.edit")){
-                    StringBuilder s = new StringBuilder(f.getName());
-                    result.add(s.substring(0, f.getName().length()-5));
+                if (f.isFile()) {
+                    if (f.getName().matches(".*\\.lvl")) {
+                        StringBuilder s = new StringBuilder(f.getName());
+                        result.add(s.substring(0, f.getName().length() - 4));
+                    } else if (f.getName().matches(".*\\.edit")) {
+                        StringBuilder s = new StringBuilder(f.getName());
+                        result.add(s.substring(0, f.getName().length() - 5));
+                    }
                 }
             }
         }
     }
-
 }

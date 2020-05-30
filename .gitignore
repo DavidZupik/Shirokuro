@@ -1,4 +1,6 @@
 /.idea/
+out
+documentation
+target
 Shirokuro.iml
 Load
-out
