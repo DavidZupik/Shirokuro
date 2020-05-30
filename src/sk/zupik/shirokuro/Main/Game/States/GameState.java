@@ -83,32 +83,41 @@ public class GameState implements Serializable {
     /**
      * ulozenie rozohranej hry
      * @param fileName urcuje ako sa ma subor volat
-     * @throws Exception ked sa zle nacita classa ktora ma byt ulozena
+     * @throws IOException zle nacitanie triedy ktora ma byt ulozena do subora<br>
+     *                     nenajdenie suboru do ktoreho ma byt trieda ulozena
      */
-    public void saveGame(String fileName) throws Exception{
+    public void saveGame(String fileName) throws IOException {
+        if(!new File(Shirokuro.directory + "./Load").exists()){
+            new File(Shirokuro.directory + "./Load").mkdirs();
+        }
         ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream("./Load/" + fileName + ".lvl"));
         fs.writeObject(this);
         fs.close();
     }
+
     /**
      * nacitanie ulozenej hry
-     * @param fileName urcuje ktory subor ma byt nahrany
+     * @param fileName fileName urcuje ktory subor ma byt nahrany
      * @return vrati objekt v ktorom je hra ulozena
-     * @throws Exception ked sa subor ktory ma byt nacitany nenachadza v zlozke alebo sa zle nacita classa
+     * @throws IOException zle nacitanie triedy ktora ma byt ulozena do subora<br>
+     *                     nenajdenie suboru do ktoreho ma byt trieda ulozena
+     * @throws ClassNotFoundException nenajdenie suboru s triedou
      */
-    public static GameState loadGame(String fileName) throws Exception {
+    public static GameState loadGame(String fileName) throws IOException, ClassNotFoundException {
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("./Load/" + fileName + ".lvl"));
         GameState gameState = (GameState)is.readObject();
         is.close();
         return gameState;
     }
     /**
-     * nacitanie naeditovanej hry
-     * @param fileName urcuje ktory subor ma byt nahrany
-     * @return vrati objekt v ktorom je naeditovany level ulozeny
-     * @throws Exception ked sa subor ktory ma byt nacitany nenachadza v zlozke alebo sa zle nacita classa
+     * nacitanie ulozenej hry
+     * @param fileName fileName urcuje ktory subor ma byt nahrany
+     * @return vrati objekt v ktorom je hra ulozena
+     * @throws IOException zle nacitanie triedy ktora ma byt ulozena do subora<br>
+     *                     nenajdenie suboru do ktoreho ma byt trieda ulozena
+     * @throws ClassNotFoundException nenajdenie suboru s triedou
      */
-    public static EditState loadEditGame(String fileName) throws Exception{
+    public static EditState loadEditGame(String fileName) throws IOException, ClassNotFoundException{
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("./Load/" + fileName + ".edit"));
         EditState editState = (EditState)is.readObject();
         is.close();
