@@ -87,7 +87,7 @@ public class GameState implements Serializable {
      *                     nenajdenie suboru do ktoreho ma byt trieda ulozena
      */
     public void saveGame(String fileName) throws IOException {
-        if(!new File(Shirokuro.directory + "./Load").exists()){
+        if(!new File(Shirokuro.directory + "./Load").exists()) {
             new File(Shirokuro.directory + "./Load").mkdirs();
         }
         ObjectOutputStream fs = new ObjectOutputStream(new FileOutputStream("./Load/" + fileName + ".lvl"));
