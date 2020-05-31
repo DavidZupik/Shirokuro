@@ -2,6 +2,8 @@
 
 **projekt:** `Shirokuro`
 
+**github repo:** `github.com/DavidZupik/Shirokuro.git`
+
 Shirokuro je japonska logicka hra,
 v ktorej mate na hracej ploche poukladane biele a cierne kruhy.
 Tieto kruhy treba pospajat a to pomocou tychto pravidiel:
@@ -11,3 +13,5 @@ Tieto kruhy treba pospajat a to pomocou tychto pravidiel:
 
 Hra sa spusta jednoducho. V hlavnom menu zvolite moznost Play.
 Potom uz len zvolite cislo levelu ktory chcete hrat.
+
+Prilozene JARko sa da spustit len s javou od oracle.
