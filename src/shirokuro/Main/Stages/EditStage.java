@@ -57,7 +57,6 @@ public class EditStage extends Stage {
      * plocha na ktorej je vykreslena naeditovana hra
      */
     public EditPane editPane;
-
     /**
      * pocet buniek N*N
      */
@@ -86,13 +85,11 @@ public class EditStage extends Stage {
         editPane = new EditPane();
         editPane.setAlignment(Pos.CENTER);
     }
-
     /**
      * nastavenie komponentov ktore sa zobrazia v scene
      */
     public void setUpEditStage(){
         solvableCircle = solvableCircleComponents();
-
         Circle wCircle = whiteButtonComponents();
         whiteCellButton = new Button("", wCircle);
         whiteCellButton.getStyleClass().add("edit-buttons");
@@ -176,13 +173,11 @@ public class EditStage extends Stage {
         editPane.paint();
 
     }
-
     /**
      * metoda nastavi tlacitko na clicked
      * @param button tlacikto ktore bolo stlacenie
      */
     public void setClickedStyle(Button button){
-
         whiteCellButton.getStyleClass().clear();
         blackCellButton.getStyleClass().clear();
         removeCellButton.getStyleClass().clear();
@@ -203,7 +198,6 @@ public class EditStage extends Stage {
             blackCellButton.getStyleClass().add("edit-buttons");
         }
     }
-
     /**
      * zmenenie stredneho kruhu
      * cervena = naeditovany level sa neda ulozit (neriesitelne/neskotrolovane)
@@ -217,7 +211,6 @@ public class EditStage extends Stage {
             solvableCircle.setFill(Color.RED);
         }
     }
-
     /**
      * @return vrati true ak pocet bielych kruhov == pocet ciernych kruhov != 0
      */
@@ -236,7 +229,6 @@ public class EditStage extends Stage {
         }
         return b == w && b != 0;
     }
-
     private Circle solvableCircleComponents(){
         Circle circle = new Circle();
         circle.setRadius(12.5);

@@ -14,7 +14,6 @@ import java.util.Objects;
 public final class FileResolver {
 
     private FileResolver(){}
-
     /**
      * @param path ceska k suboru v ktorej ma metoda hladat hudbu
      * @return vrati cestu k hudbe v URI formate
@@ -22,9 +21,6 @@ public final class FileResolver {
     public static URI getUri(String path){
         try {
             try {
-                System.out.println("nieco1");
-                System.out.println("/"+path);
-                System.out.println(FileResolver.class.getClassLoader().getResource("shirokuro/" + path));
                 return Objects.requireNonNull(FileResolver.class.getClassLoader().getResource("shirokuro/" + path)).toURI();
             } catch (URISyntaxException e) {
                 e.printStackTrace();
@@ -35,7 +31,6 @@ public final class FileResolver {
         }
         return null;
     }
-
     /**
      * @param path cesta k suboru v ktorej ma hladat level
      * @return vrati cestu k levelu ako InputStream

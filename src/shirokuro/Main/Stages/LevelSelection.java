@@ -82,7 +82,6 @@ public class LevelSelection extends Stage {
         this.setScene(scene);
 
     }
-
     private void makeAndFillGridPane(){
         for (int rowIndex = 0; rowIndex < 5; rowIndex++){
             RowConstraints rc = new RowConstraints();
@@ -120,5 +119,4 @@ public class LevelSelection extends Stage {
         Shirokuro.getGameStage().show();
         this.close();
     }
-
 }

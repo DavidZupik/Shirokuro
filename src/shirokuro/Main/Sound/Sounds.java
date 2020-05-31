@@ -26,14 +26,12 @@ public final class Sounds {
         player.setVolume(0.05);
         player.play();
     }
-
     /**
      * pauznutie hudby
      */
     public void pause(){
         player.pause();
     }
-
     /**
      * zvysenie hlasitosti hudby<br>
      * ak hudba bola pauznuta alebo hlasitost bola 0<br>
@@ -49,7 +47,6 @@ public final class Sounds {
             player.play();
         }
     }
-
     /**
      * znizenie hlasitosti hudby<br>
      * ak hlasitost hudby je na urovni kedy ho nepocut<br>

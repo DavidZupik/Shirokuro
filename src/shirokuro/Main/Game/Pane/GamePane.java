@@ -15,7 +15,6 @@ public class GamePane extends GridPane {
         setWidth(425);
         setHeight(425);
     }
-
     /**
      * vykreslenie hracej plochy
      */

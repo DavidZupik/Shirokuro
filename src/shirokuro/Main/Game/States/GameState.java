@@ -41,8 +41,6 @@ public class GameState implements Serializable {
      * pole so spojenymi parmi
      */
     public HashMap<CellState, CellState> pairs;
-
-
     /**
      * konstruktor triedy
      * @param levelNumber cislo levelu ktory sa nacita

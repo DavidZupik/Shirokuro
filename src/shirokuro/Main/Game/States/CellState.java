@@ -14,6 +14,7 @@ public class CellState implements Serializable {
     Direction direction;
     int row;
     int col;
+
     /**
      * uchovava informaciu ci je bunka zakliknuta alebo nie
      */
@@ -33,34 +34,43 @@ public class CellState implements Serializable {
         this.row = row;
         this.col = col;
     }
-
     /**
      * @return vrati riadok bunky
      */
     public int getRow() {
         return row;
     }
-
     /**
      * @return vrati stlpec bunky
      */
     public int getCol() {
         return col;
     }
-
+    /**
+     * @return stav bunky
+     */
     public States getState() {
         return state;
     }
-
+    /**
+     * @return smer bunky
+     */
     public Direction getDirection() {
         return direction;
     }
-
+    /**
+     * metoda nastavy smer bunky
+     * @param direction smer na ktory sa ma nastavit bunka
+     */
     public void setDirection(Direction direction){
         this.direction = direction;
     }
-
+    /**
+     * metoda nastavy stav bunky
+     * @param state stav na ktory sa ma bunka nastavit
+     */
     public void setState(States state) {
         this.state = state;
     }
+
 }

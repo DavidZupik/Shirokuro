@@ -15,15 +15,14 @@ import javafx.scene.shape.Circle;
  */
 public class EditCellPane extends Pane {
 
-    int row;
-    int col;
-    double height;
-    double width;
-
+    private final int row;
+    private final int col;
+    private final double height;
+    private final double width;
     /**
      * konstruktor triedy
-     * @param row urci riadok bunky
-     * @param col urci stlpec bunky
+     * @param row riadok bunky
+     * @param col stlpec bunky
      */
     public EditCellPane(int row, int col){
         this.row = row;
@@ -38,7 +37,6 @@ public class EditCellPane extends Pane {
             Shirokuro.getEditStage().editPane.paint();
         });
     }
-
     /**
      * vykreslenie bunky
      */
@@ -72,9 +70,8 @@ public class EditCellPane extends Pane {
         getChildren().add(sp);
 
     }
-
     /**
-     * vsetky bunky ktore su v inom stave ako white alebo black hodi do free
+     * vsetky bunky ktore su v inom stave ako white alebo black vrati do stavu free
      * bunkam ktore maju stav white alebo black hodi smer none
      */
     public static void makeOccupyFree(){
