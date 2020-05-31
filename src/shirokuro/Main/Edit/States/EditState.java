@@ -13,8 +13,17 @@ import java.io.*;
 public class EditState implements Serializable {
 
     private static final long serialVersionUID = 6529685098267757890L;
+    /**
+     * velkost editovacej plochy NxN
+     */
     public Integer size;
+    /**
+     * dvojrozmerne pole tktore uchovava stav jednotlivych buniek
+     */
     public CellState[][] cells;
+    /**
+     * pocet vsetkych kruhov
+     */
     public int numberOfCircles = 0;
 
     /**

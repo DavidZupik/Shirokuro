@@ -206,8 +206,8 @@ public class EditStage extends Stage {
 
     /**
      * zmenenie stredneho kruhu
-     * cervena -> naeditovany level sa neda ulozit (neriesitelne/neskotrolovane)
-     * zelena -> naeditovany level sa moze ulozit
+     * cervena = naeditovany level sa neda ulozit (neriesitelne/neskotrolovane)
+     * zelena = naeditovany level sa moze ulozit
      */
     public void setCenterCircleFill(){
         if(solvable){

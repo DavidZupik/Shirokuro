@@ -86,6 +86,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie okna hry
+     * @param newGameStage nove okno hry
      */
     public static void setGameStage(GameStage newGameStage) {
         gameStage = newGameStage;
@@ -93,6 +94,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie okna hlavneho menu
+     * @param newMainMenu nastavenie noveho okna hlavneho menu
      */
     public static void setMainMenu(MainMenu newMainMenu) {
         mainMenu = newMainMenu;
@@ -100,6 +102,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie zvuku
+     * @param newSounds nastavenie zvuku
      */
     public static void setSounds(Sounds newSounds) {
         sounds = newSounds;
@@ -107,6 +110,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie okna s napovedou
+     * @param newHelp nastavenie noveho okna napovied
      */
     public static void setHelp(Help newHelp) {
         help = newHelp;
@@ -114,6 +118,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie okna vyberu levelu
+     * @param newLvlSelection nastavenie noveho okna vyberu levelu
      */
     public static void setLvlSelection(LevelSelection newLvlSelection) {
         lvlSelection = newLvlSelection;
@@ -121,6 +126,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie okna kde level bol prejdeny
+     * @param newWinningStage nastavenie noveho okna vyhranej hry
      */
     public static void setWinningStage(WinningStage newWinningStage) {
         winningStage = newWinningStage;
@@ -128,6 +134,7 @@ public class Shirokuro extends Application {
 
     /**
      * nastavenie editovacieho okna
+     * @param newEditStage nastavenie noveho okna editovania hry
      */
     public static void setEditStage(EditStage newEditStage) {
         editStage = newEditStage;
