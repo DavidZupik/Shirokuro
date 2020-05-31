@@ -16,12 +16,30 @@ import java.util.HashMap;
 public class GameState implements Serializable {
 
     private static final long serialVersionUID = 6529685098267757690L;
-    public Integer size;
-    public CellState[][] cells;
     private static final String FILE_PATH = "Levels/";
+    /**
+     * velkost hracej plochy NxN
+     */
+    public Integer size;
+    /**
+     * dvojrozmerne pole v ktorom je ulozeny stav jednotlicvych buniek
+     */
+    public CellState[][] cells;
+    /**
+     * ako dlho sa hra hraje
+     */
     public Integer time;
+    /**
+     * pocet vstetkych kruhov
+     */
     public int numberOfCircles;
+    /**
+     * clicknuta bunka
+     */
     public static CellState clickedCell = null;
+    /**
+     * pole so spojenymi parmi
+     */
     public HashMap<CellState, CellState> pairs;
 
 
