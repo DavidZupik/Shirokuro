@@ -15,7 +15,6 @@ public class EditPane extends GridPane {
         setWidth(420);
         setHeight(420);
     }
-
     /**
      * vykreslenie editovacej plochy
      */

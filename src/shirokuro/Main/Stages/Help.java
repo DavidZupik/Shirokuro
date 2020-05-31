@@ -95,7 +95,6 @@ public class Help extends Stage {
         this.setScene(scene);
 
     }
-
     private void getBackButtonAction(){
         Shirokuro.getMainMenu().show();
         this.close();

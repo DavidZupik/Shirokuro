@@ -26,6 +26,7 @@ public class EditState implements Serializable {
      */
     public int numberOfCircles = 0;
 
+
     /**
      * konstruktor triedy
      * @param N velkost hracej plochy
@@ -35,7 +36,6 @@ public class EditState implements Serializable {
         cells = new CellState[size][size];
         fillArray();
     }
-
     /**
      * vyplnenie pola bunkami ktore maju stav free a smer none
      */
@@ -46,7 +46,6 @@ public class EditState implements Serializable {
             }
         }
     }
-
     /**
      * ulozenie naeditovanej hry
      * @param fileName nazov pod ktorym bude hra ulozena
@@ -60,7 +59,6 @@ public class EditState implements Serializable {
         fs.writeObject(this);
         fs.close();
     }
-
     /**
      * spocita pocet kruhov
      */
@@ -74,5 +72,4 @@ public class EditState implements Serializable {
             }
         }
     }
-
 }

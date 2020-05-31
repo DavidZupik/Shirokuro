@@ -24,7 +24,6 @@ public class SaveGame extends Stage {
     OverwriteStage overwrite;
     boolean fileExist = true;
     boolean saveEditGame;
-
     /**
      * test ktory sa zobrazi v okne
      */
@@ -86,7 +85,6 @@ public class SaveGame extends Stage {
         this.setResizable(false);
 
     }
-
     private void saveButtonAction(boolean editGame){
         if(textField.getText().equals("")){
             screenText.setText("Empty file name.");

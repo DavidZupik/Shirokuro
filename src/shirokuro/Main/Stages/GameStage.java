@@ -55,7 +55,6 @@ public class GameStage extends Stage {
      * plocha na ktorej je vykreslena hra
      */
     public GamePane gamePane;
-
     /**
      * konstruktor triedy
      * @param fName urcuje ktora ulozena hra ma byt nahrana
@@ -169,7 +168,6 @@ public class GameStage extends Stage {
         File temp = new File(Shirokuro.directory + "\\Load\\"+fName+".lvl");
         return temp.exists();
     }
-
     private void getBackButtonAction(){
         timeCounter.stop();
         Shirokuro.getLvlSelection().show();

@@ -31,7 +31,6 @@ public class MainMenu extends Stage {
      *     false - ak hudba nehra
      */
     public boolean sound = true;
-
     /**
      * konstructor triedy
      */
@@ -44,7 +43,7 @@ public class MainMenu extends Stage {
         Button exit = new Button("Exit");
         HBox topPane = new HBox();
         HBox bottomPane = new HBox();
-        Text name = new Text("©Dávid Župík");
+        Text name = new Text("©Dávid Župík | GIT repo: https://github.com/DavidZupik/Shirokuro.git");
 
         loadImages();
         //top pane
@@ -109,28 +108,24 @@ public class MainMenu extends Stage {
         this.setScene(scene);
 
     }
-
     /**
      * @return vrati audio
      */
     public Button getAudio() {
         return audio;
     }
-
     /**
      * @return vrati obrazok audia ktore hraje
      */
     public ImageView getAudioIMG() {
         return audioIMG;
     }
-
     /**
      * @return vrati obrazok audia ktore je vypnute
      */
     public ImageView getNoAudioIMG() {
         return noAudioIMG;
     }
-
     private void playButtonAction(){
         Shirokuro.setLvlSelection(new LevelSelection());
         Shirokuro.getLvlSelection().show();
@@ -165,5 +160,4 @@ public class MainMenu extends Stage {
         minusIMG = new ImageView(new Image("shirokuro/Main/Styles_Images/Images/minus.png"));
         plusIMG = new ImageView(new Image("shirokuro/Main/Styles_Images/Images/plus.png"));
     }
-
 }

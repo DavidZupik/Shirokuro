@@ -85,5 +85,4 @@ public class WinningStage extends Stage {
         this.setScene(scene);
 
     }
-
 }

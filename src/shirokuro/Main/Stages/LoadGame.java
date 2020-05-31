@@ -95,7 +95,6 @@ public class LoadGame extends Stage {
         this.setScene(scene);
 
     }
-
     /**
      * metoda hlada vsetky zlozky z koncovkou lvl a edit v subore<br>
      * a vklada ich do pola

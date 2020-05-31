@@ -19,10 +19,10 @@ import javafx.scene.shape.Rectangle;
  */
 public class CellPane extends Pane {
 
-    int row;
-    int col;
-    double height;
-    double width;
+    private final int row;
+    private final int col;
+    private final double height;
+    private final double width;
 
     /**
      * konstruktor triedy
@@ -30,7 +30,6 @@ public class CellPane extends Pane {
      * @param col urcuje stlpec bunky
      */
     public CellPane(int row, int col){
-
         this.row = row;
         this.col = col;
         height = (425. / Shirokuro.getGameStage().state.size - 1);
@@ -40,7 +39,6 @@ public class CellPane extends Pane {
             CellState cell = Shirokuro.getGameStage().state.getCell(row, col);
             checkCorrectness(cell);
         });
-
     }
     /**
      * kreslenie bunky
@@ -117,7 +115,6 @@ public class CellPane extends Pane {
         sp.getChildren().addAll(rect, c, joins);
         getChildren().add(sp);
     }
-
     private void checkCorrectness(CellState cell){
         if (GameState.clickedCell == null) {
             firstClick(cell);
@@ -172,5 +169,4 @@ public class CellPane extends Pane {
         Shirokuro.getGameStage().close();
         Shirokuro.setGameStage(null);
     }
-
 }

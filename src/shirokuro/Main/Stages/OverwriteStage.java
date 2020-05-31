@@ -55,7 +55,6 @@ public class OverwriteStage extends Stage {
         this.setResizable(false);
 
     }
-
     private void noButtonAction(){
         SaveGame.screenText.setText("A file with this name already exists.\n" +
                 "Please select different file name.");

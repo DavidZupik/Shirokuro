@@ -20,7 +20,7 @@ public class Shirokuro extends Application {
     private static WinningStage winningStage;
     private static EditStage editStage;
     /**
-     *  cesta k projektu
+     *  cesta k adresaru projektu
      */
     public static String directory;
 
