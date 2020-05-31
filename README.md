@@ -1,15 +1,15 @@
-**autor:** `Dávid Župík`
+<h3>**projekt:** `Shirokuro`</h2>
 
-**projekt:** `Shirokuro`
+<h5>**autor:** `Dávid Župík`</h5>
 
-**github repo:** `github.com/DavidZupik/Shirokuro.git`
+<h5>**git repo:** `github.com/DavidZupik/Shirokuro.git` </h5>
 
-Shirokuro je japonska logicka hra,
+Shirokuro je `japonska logicka hra`,
 v ktorej mate na hracej ploche poukladane biele a cierne kruhy.
 Tieto kruhy treba pospajat a to pomocou tychto pravidiel:
-                             -kruhy mozu byt spojene len verticalne alebo horizontalne. 
-                             -prepojenia sa nemozu krizovat a nemozu ani prechadzat cez iny kruh. 
-                             -kazdy kruh moze byt spojeny prave s jednim kruhom opacnej farby
+<br><b>-kruhy mozu byt spojene len verticalne alebo horizontalne.</b> 
+<br><b>-prepojenia sa nemozu krizovat a nemozu ani prechadzat cez iny kruh.</b> 
+<br><b>-kazdy kruh moze byt spojeny prave s jednim kruhom opacnej farby</b>
 
 Hra sa spusta jednoducho. V hlavnom menu zvolite moznost Play.
 Potom uz len zvolite cislo levelu ktory chcete hrat.
