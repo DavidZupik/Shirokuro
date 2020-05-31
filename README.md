@@ -2,7 +2,7 @@
 
 **projekt:** `Shirokuro`
 
-**github repo:** `github.com/DavidZupik/Shirokuro`
+**github repo:** `github.com/DavidZupik/Shirokuro.git`
 
 Shirokuro je japonska logicka hra,
 v ktorej na hracej ploche su poukladane biele a cierne kruhy.
