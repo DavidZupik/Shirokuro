@@ -32,14 +32,15 @@ public class Shirokuro extends Application {
         setSounds(new Sounds());
         sounds.play();
     }
-
+    public static void main(String[] args) {
+        launch(args);
+    }
     /**
      * @return hlavne okno hry
      */
     public static GameStage getGameStage() {
         return gameStage;
     }
-
     /**
      *
      * @return okno hlavneho menu
@@ -47,7 +48,6 @@ public class Shirokuro extends Application {
     public static MainMenu getMainMenu() {
         return mainMenu;
     }
-
     /**
      *
      * @return triedu zo zvukom
@@ -55,86 +55,77 @@ public class Shirokuro extends Application {
     public static Sounds getSounds() {
         return sounds;
     }
-
     /**
      * @return okno kde je napoveda ako hrat hru
      */
     public static Help getHelp() {
         return help;
     }
-
     /**
      * @return okno kde sa vyberaju leveli
      */
     public static LevelSelection getLvlSelection() {
         return lvlSelection;
     }
-
     /**
      * @return okno kde bol level prejdeny
      */
     public static WinningStage getWinningStage() {
         return winningStage;
     }
-
     /**
      * @return okno editovaci stage
      */
     public static EditStage getEditStage() {
         return editStage;
     }
-
     /**
      * nastavenie okna hry
+     * @param newGameStage nove okno hry
      */
     public static void setGameStage(GameStage newGameStage) {
         gameStage = newGameStage;
     }
-
     /**
      * nastavenie okna hlavneho menu
+     * @param newMainMenu nastavenie noveho okna hlavneho menu
      */
     public static void setMainMenu(MainMenu newMainMenu) {
         mainMenu = newMainMenu;
     }
-
     /**
      * nastavenie zvuku
+     * @param newSounds nastavenie zvuku
      */
     public static void setSounds(Sounds newSounds) {
         sounds = newSounds;
     }
-
     /**
      * nastavenie okna s napovedou
+     * @param newHelp nastavenie noveho okna napovied
      */
     public static void setHelp(Help newHelp) {
         help = newHelp;
     }
-
     /**
      * nastavenie okna vyberu levelu
+     * @param newLvlSelection nastavenie noveho okna vyberu levelu
      */
     public static void setLvlSelection(LevelSelection newLvlSelection) {
         lvlSelection = newLvlSelection;
     }
-
     /**
      * nastavenie okna kde level bol prejdeny
+     * @param newWinningStage nastavenie noveho okna vyhranej hry
      */
     public static void setWinningStage(WinningStage newWinningStage) {
         winningStage = newWinningStage;
     }
-
     /**
      * nastavenie editovacieho okna
+     * @param newEditStage nastavenie noveho okna editovania hry
      */
     public static void setEditStage(EditStage newEditStage) {
         editStage = newEditStage;
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
 }

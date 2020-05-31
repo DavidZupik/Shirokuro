@@ -14,6 +14,9 @@ public class CellState implements Serializable {
     Direction direction;
     int row;
     int col;
+    /**
+     * uchovava informaciu ci je bunka zakliknuta alebo nie
+     */
     public boolean clicked;
 
     /**
