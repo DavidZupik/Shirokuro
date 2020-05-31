@@ -19,7 +19,6 @@ public class Shirokuro extends Application {
     private static LevelSelection lvlSelection;
     private static WinningStage winningStage;
     private static EditStage editStage;
-
     /**
      *  cesta k projektu
      */
@@ -35,7 +34,7 @@ public class Shirokuro extends Application {
     }
 
     /**
-     * @return vrati stage hry
+     * @return hlavne okno hry
      */
     public static GameStage getGameStage() {
         return gameStage;
@@ -43,7 +42,7 @@ public class Shirokuro extends Application {
 
     /**
      *
-     * @return vrati stage hlavneho menu
+     * @return okno hlavneho menu
      */
     public static MainMenu getMainMenu() {
         return mainMenu;
@@ -51,49 +50,49 @@ public class Shirokuro extends Application {
 
     /**
      *
-     * @return vrati triedu zo zvukom
+     * @return triedu zo zvukom
      */
     public static Sounds getSounds() {
         return sounds;
     }
 
     /**
-     * @return vrati stage kde je napoveda ako hrat hru
+     * @return okno kde je napoveda ako hrat hru
      */
     public static Help getHelp() {
         return help;
     }
 
     /**
-     * @return vrati stage kde sa vyberaju leveli
+     * @return okno kde sa vyberaju leveli
      */
     public static LevelSelection getLvlSelection() {
         return lvlSelection;
     }
 
     /**
-     * @return vrati stage kde bol level prejdeny
+     * @return okno kde bol level prejdeny
      */
     public static WinningStage getWinningStage() {
         return winningStage;
     }
 
     /**
-     * @return vrati editovaci stage
+     * @return okno editovaci stage
      */
     public static EditStage getEditStage() {
         return editStage;
     }
 
     /**
-     * nastavenie stagu hry
+     * nastavenie okna hry
      */
     public static void setGameStage(GameStage newGameStage) {
         gameStage = newGameStage;
     }
 
     /**
-     * nastavenie stagu hlavneho menu
+     * nastavenie okna hlavneho menu
      */
     public static void setMainMenu(MainMenu newMainMenu) {
         mainMenu = newMainMenu;
@@ -107,28 +106,28 @@ public class Shirokuro extends Application {
     }
 
     /**
-     * nastavenie stagu pomoci
+     * nastavenie okna s napovedou
      */
     public static void setHelp(Help newHelp) {
         help = newHelp;
     }
 
     /**
-     * nastavenie stagu vyberu levelu
+     * nastavenie okna vyberu levelu
      */
     public static void setLvlSelection(LevelSelection newLvlSelection) {
         lvlSelection = newLvlSelection;
     }
 
     /**
-     * nastavenie stagu kde level bol prejdeny
+     * nastavenie okna kde level bol prejdeny
      */
     public static void setWinningStage(WinningStage newWinningStage) {
         winningStage = newWinningStage;
     }
 
     /**
-     * nastavenie editovacieho stagu
+     * nastavenie editovacieho okna
      */
     public static void setEditStage(EditStage newEditStage) {
         editStage = newEditStage;

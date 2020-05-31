@@ -16,17 +16,21 @@ public final class FileResolver {
     private FileResolver(){}
 
     /**
-     * @param path ceska vk suboru v ktorej ma metoda hladat hudbu
+     * @param path ceska k suboru v ktorej ma metoda hladat hudbu
      * @return vrati cestu k hudbe v URI formate
      */
     public static URI getUri(String path){
         try {
             try {
-                return Objects.requireNonNull(FileResolver.class.getClassLoader().getResource("../" + path)).toURI();
+                System.out.println("nieco1");
+                System.out.println("/"+path);
+                System.out.println(FileResolver.class.getClassLoader().getResource("shirokuro/" + path));
+                return Objects.requireNonNull(FileResolver.class.getClassLoader().getResource("shirokuro/" + path)).toURI();
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
         } catch (NullPointerException e){
+            System.out.println("nieco2");
             return new File("src/shirokuro/" + path).toURI();
         }
         return null;
@@ -38,7 +42,7 @@ public final class FileResolver {
      * @throws FileNotFoundException ak sa dany subor nenajde v zlozke
      */
     public static InputStream getInputStream(String path) throws FileNotFoundException {
-        InputStream is = FileResolver.class.getClassLoader().getResourceAsStream("../" + path);
+        InputStream is = FileResolver.class.getClassLoader().getResourceAsStream("shirokuro/" + path);
         if (is == null){
             return new FileInputStream(new File("src/shirokuro/" + path));
         }
