@@ -1,6 +1,4 @@
-## projekt: Shirokuro
-
-##### autor: Dávid Župík
+## Shirokuro
 
 Shirokuro is a Japanese logic game, in which you have white and black circles on the board.
 These circles must be connected using the following rules:
