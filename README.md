@@ -2,16 +2,12 @@
 
 ##### autor: Dávid Župík
 
-##### git repo:github.com/DavidZupik/Shirokuro.git
+Shirokuro is a Japanese logic game, in which you have white and black circles on the board.
+These circles must be connected using the following rules:
+        1. Circles can only be connected vertically or horizontally.
+        2. Connections cannot cross and cannot cross another circle.
+        3. Each circle can be connected to exactly one circle of opposite color.
 
-Shirokuro je `japonska logicka hra`,
-v ktorej mate na hracej ploche poukladane biele a cierne kruhy.
-Tieto kruhy treba pospajat a to pomocou tychto pravidiel:
-<br><b>-kruhy mozu byt spojene len verticalne alebo horizontalne.</b> 
-<br><b>-prepojenia sa nemozu krizovat a nemozu ani prechadzat cez iny kruh.</b> 
-<br><b>-kazdy kruh moze byt spojeny prave s jednim kruhom opacnej farby</b>
-
-Hra sa spusta jednoducho. V hlavnom menu zvolite moznost Play.
-Potom uz len zvolite cislo levelu ktory chcete hrat.
-
-Prilozene JARko sa da spustit len s javou od oracle.
+The game starts easily. 
+In the main menu, select the Play option. 
+Then just select the level number you want to play.
